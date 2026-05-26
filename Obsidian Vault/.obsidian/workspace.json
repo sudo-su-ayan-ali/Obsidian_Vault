@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/BAC/IDOR/Phase 3.md",
+                "file": "bug bounty notes/bug bounty/Targets from hackerone.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Phase 3"
+              "title": "Targets from hackerone"
             }
           }
         ]
@@ -169,20 +169,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "e57ab6130f821a81",
+  "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "bug bounty notes/BAC/IDOR/Phase 1.md",
+    "bug bounty notes/bug bounty/IDOR Bug Bounty On BOOKING.COM.md",
+    "bug bounty notes/bug bounty/bug hunting on Dell.md",
+    "bug bounty notes/bug bounty/12-3-2026  testing working.md",
+    "bug bounty notes/BAC/IDOR/Phase 3.md",
     "bug bounty notes/bug bounty/IDOR/idor.md",
     "bug bounty notes/bug bounty/IDOR/Phase 3.md",
     "bug bounty notes/bug bounty/IDOR/Phase 2.md",
     "bug bounty notes/bug bounty/IDOR/Phase 1.md",
     "bug bounty notes/bug bounty/IDOR",
     "1 person building from nothing to big.md",
-    "bug bounty notes/BAC/IDOR/Phase 3.md",
     "c++ revision.md",
     "ubuntu server claude chat.md",
     "Untitled 1.md",
     "Untitled.md",
-    "bug bounty notes/BAC/IDOR/Phase 1.md",
     "bug bounty notes/BAC/IDOR/Phase 2.md",
     "bug bounty notes/BAC/IDOR/idor.md",
     "bug bounty notes/BAC/IDOR",
@@ -197,9 +200,6 @@
     "bug bounty notes/BAC/Broken Access Control reports case study/Unauthenticated access to private files and previews via Active Storage URLs.md",
     "OSCP Prepration/ctf methodology/htb paid machine replacement from vulnhub and git rpos.md",
     "OSCP Prepration/Cryptography/Password Attacks.md",
-    "OSCP Prepration/Cryptography/Hashing.md",
-    "bug bounty notes/bug bounty/12-3-2026  testing working.md",
-    "bug bounty notes/bug bounty/Targets from hackerone.md",
     "bug bounty notes/BAC",
     "LLM learning/Pytorch",
     "LLM learning",
