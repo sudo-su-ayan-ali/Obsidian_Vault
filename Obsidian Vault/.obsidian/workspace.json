@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP Prepration/Active Directory/DC01 setup.md",
+                "file": "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
                 "mode": "source",
                 "source": false
               },
@@ -183,10 +183,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "e8ff86c379ab4f86",
+  "active": "e57ab6130f821a81",
   "lastOpenFiles": [
-    "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
-    "OSCP Prepration/Active Directory/DC01 setup.md",
+    "OSCP Prepration/Active Directory/Setup",
+    "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
     "OSCP Prepration/Active Directory/exploitations/exploitations.md",
     "OSCP Prepration/Active Directory/exploitations",
     "OSCP Prepration/Active Directory/exploitations/AD-exploitation methodology.md",
@@ -215,7 +216,6 @@
     "startup problems for ideas.md",
     "🏢 TO-DO list.md",
     "Pasted image 20260301195620.png",
-    "OSCP Prepration/PrivEsc/Untitled.md",
     "bug bounty notes/BAC",
     "LLM learning/Pytorch",
     "LLM learning",
