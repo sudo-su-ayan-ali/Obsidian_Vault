@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
+                "file": "OSCP Prepration/Active Directory/DC01 setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Active Directory + Red Team Lab"
+              "title": "DC01 setup"
             }
           }
         ]
@@ -185,10 +185,11 @@
   },
   "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/Active Directory/DC01 setup.md",
     "OSCP Prepration/Active Directory/exploitations/exploitations.md",
     "OSCP Prepration/Active Directory/exploitations",
     "OSCP Prepration/Active Directory/exploitations/AD-exploitation methodology.md",
-    "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
     "OSCP Prepration/Active Directory",
     "bug bounty notes/bug bounty/Targets from hackerone.md",
     "bug bounty notes/BAC/IDOR/Phase 1.md",
