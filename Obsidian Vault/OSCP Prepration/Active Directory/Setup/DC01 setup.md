@@ -2,15 +2,15 @@
 
 ### Step 1: Create the VM in VirtualBox
 
-|Setting|Value|
-|---|---|
-|Name|DC01|
-|OS Type|Windows Server 2022|
-|RAM|4096 MB|
-|CPU|2 vCPUs|
-|Disk|40 GB (VDI, Dynamically Allocated)|
-|Network Adapter|Internal Network|
-|Network Name|ADLAB|
+| Setting         | Value                              |
+| --------------- | ---------------------------------- |
+| Name            | DC01                               |
+| OS Type         | Windows Server 2022                |
+| RAM             | 4096 MB                            |
+| CPU             | 2 vCPUs                            |
+| Disk            | 40 GB (VDI, Dynamically Allocated) |
+| Network Adapter | Internal Network                   |
+| Network Name    | ADLAB                              |
 
 ---
 
@@ -25,6 +25,7 @@
     - Windows Server 2022 Standard Evaluation (Desktop Experience)
         
 4. Set Administrator password.
+		password = DCAdmin@123
     
 
 After installation, log in as:
@@ -51,12 +52,12 @@ Control Panel → Network and Sharing Center
 
 Configure:
 
-|Setting|Value|
-|---|---|
-|IP Address|192.168.100.10|
-|Subnet Mask|255.255.255.0|
-|Gateway|Leave Blank (Lab Only)|
-|Preferred DNS|192.168.100.10|
+| Setting       | Value                  |
+| ------------- | ---------------------- |
+| IP Address    | 192.168.100.10         |
+| Subnet Mask   | 255.255.255.0          |
+| Gateway       | Leave Blank (Lab Only) |
+| Preferred DNS | 192.168.100.10         |
 
 Verify:
 
@@ -126,7 +127,7 @@ Install-ADDSForest `
 You'll be prompted to:
 
 - Set Directory Services Restore Mode (DSRM) password.
-    
+	    Password is DCAdmin@123
 
 After confirmation:
 

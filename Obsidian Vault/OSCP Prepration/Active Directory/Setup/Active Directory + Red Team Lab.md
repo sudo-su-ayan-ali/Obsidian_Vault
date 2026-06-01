@@ -34,11 +34,11 @@
 |KALI|192.168.100.30|
 |FILE01|192.168.100.40|
 
-|Setting|Value|
-|---|---|
-|Network Type|Internal Network|
-|Network Name|ADLAB|
-|Domain Name|corp.local|
+| Setting      | Value            |
+| ------------ | ---------------- |
+| Network Type | Internal Network |
+| Network Name | ADLAB            |
+| Domain Name  | corp.local       |
 
 ---
 

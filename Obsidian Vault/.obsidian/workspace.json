@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5
+    "width": 329.5,
+    "collapsed": true
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -183,11 +184,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "e57ab6130f821a81",
+  "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
-    "OSCP Prepration/Active Directory/Setup",
-    "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/Active Directory/Setup/Windows 10-01.md",
     "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
+    "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/Active Directory/Setup",
     "OSCP Prepration/Active Directory/exploitations/exploitations.md",
     "OSCP Prepration/Active Directory/exploitations",
     "OSCP Prepration/Active Directory/exploitations/AD-exploitation methodology.md",
@@ -229,7 +231,6 @@
     "Pasted image 20260304143203.png",
     "Pasted image 20260304133524.png",
     "ctfs",
-    "OSCP Prepration/PrivEsc",
-    "OSCP Prepration/Reverse Engineering"
+    "OSCP Prepration/PrivEsc"
   ]
 }
