@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/bug bounty/Targets from hackerone.md",
+                "file": "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Targets from hackerone"
+              "title": "Active Directory + Red Team Lab"
             }
           }
         ]
@@ -150,6 +150,20 @@
               "icon": "lucide-list",
               "title": "Outline of chatgpt therapy"
             }
+          },
+          {
+            "id": "ee1fd2259fd45571",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
         ]
       }
@@ -171,6 +185,12 @@
   },
   "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "OSCP Prepration/Active Directory/exploitations/exploitations.md",
+    "OSCP Prepration/Active Directory/exploitations",
+    "OSCP Prepration/Active Directory/exploitations/AD-exploitation methodology.md",
+    "OSCP Prepration/Active Directory/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/Active Directory",
+    "bug bounty notes/bug bounty/Targets from hackerone.md",
     "bug bounty notes/BAC/IDOR/Phase 1.md",
     "bug bounty notes/bug bounty/IDOR Bug Bounty On BOOKING.COM.md",
     "bug bounty notes/bug bounty/bug hunting on Dell.md",
@@ -192,14 +212,9 @@
     "bug bounty notes/bug bounty/SSRF.md",
     "cpp short notes.md",
     "startup problems for ideas.md",
-    "OSCP Prepration/AD-exploitation methodology.md",
     "🏢 TO-DO list.md",
     "Pasted image 20260301195620.png",
     "OSCP Prepration/PrivEsc/Untitled.md",
-    "OSCP Prepration/PrivEsc/Linux PrivEsc I.md",
-    "bug bounty notes/BAC/Broken Access Control reports case study/Unauthenticated access to private files and previews via Active Storage URLs.md",
-    "OSCP Prepration/ctf methodology/htb paid machine replacement from vulnhub and git rpos.md",
-    "OSCP Prepration/Cryptography/Password Attacks.md",
     "bug bounty notes/BAC",
     "LLM learning/Pytorch",
     "LLM learning",
@@ -214,8 +229,6 @@
     "Pasted image 20260304133524.png",
     "ctfs",
     "OSCP Prepration/PrivEsc",
-    "OSCP Prepration/Reverse Engineering",
-    "OSCP Prepration/Cryptography",
-    "OSCP Prepration/web attacks/XSS/Broken Access Control/Untitled"
+    "OSCP Prepration/Reverse Engineering"
   ]
 }
