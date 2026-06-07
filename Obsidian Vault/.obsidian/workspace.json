@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "active directory tryhackme free rooms.md",
+                "file": "ctfs/active directory tryhackme free rooms.md",
                 "mode": "source",
                 "source": false
               },
@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "windows tryhackme free rooms.md",
+                "file": "ctfs/windows tryhackme free rooms.md",
                 "mode": "source",
                 "source": false
               },
@@ -107,8 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5,
-    "collapsed": true
+    "width": 329.5
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -213,10 +212,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "f79d41142da1e8c1",
+  "active": "e57ab6130f821a81",
   "lastOpenFiles": [
-    "active directory tryhackme free rooms.md",
-    "windows tryhackme free rooms.md",
+    "ctfs/active directory tryhackme free rooms.md",
+    "ctfs/windows tryhackme free rooms.md",
     "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
     "OSCP Prepration/Active Directory/Setup/Windows 10-01.md",
     "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
