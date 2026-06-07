@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ctfs/windows tryhackme free rooms.md",
+                "file": "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "windows tryhackme free rooms"
+              "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
             }
           }
         ],
@@ -212,10 +212,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "e57ab6130f821a81",
+  "active": "f79d41142da1e8c1",
   "lastOpenFiles": [
-    "ctfs/active directory tryhackme free rooms.md",
     "ctfs/windows tryhackme free rooms.md",
+    "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+    "ctfs/active directory tryhackme free rooms.md",
     "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
     "OSCP Prepration/Active Directory/Setup/Windows 10-01.md",
     "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
@@ -244,7 +245,6 @@
     "bug bounty notes/BAC/IDOR",
     "bug bounty notes/bug bounty/SSRF.md",
     "cpp short notes.md",
-    "startup problems for ideas.md",
     "Pasted image 20260301195620.png",
     "bug bounty notes/BAC",
     "LLM learning/Pytorch",
