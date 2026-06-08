@@ -1,3 +1,13 @@
 {
+<<<<<<< HEAD
   "promptDelete": false
+=======
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+>>>>>>> bd6f512 (did some changes)
 }
