@@ -11,14 +11,10 @@
             "id": "e8ff86c379ab4f86",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "New tab"
             }
           }
         ]
@@ -183,8 +179,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "e8ff86c379ab4f86",
+  "active": "e57ab6130f821a81",
   "lastOpenFiles": [
+    "Untitled.md",
     "bug bounty notes/bug bounty/Complete Guide of OWASP ZAP.md",
     "OSCP Prepration/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
     "OSCP Prepration/PrivEsc/Linux PrivEsc I.md",
@@ -205,7 +202,6 @@
     "OSCP Prepration/Active Directory",
     "bug bounty notes/BAC/Broken Access Control reports case study/Insecure Direct Object Reference (IDOR) Allows Viewing Private Report Details via bugs.json Endpoint.md",
     "bug bounty notes/BAC/Broken Access Control reports case study/IDOR allow access to payments data of any user.md",
-    "Untitled.md",
     "bug bounty notes/BAC/IDOR/Phase 1.md",
     "plans/workout plan of my Qalbi 🥰.md",
     "bug bounty notes/bug bounty/Targets from hackerone.md",
