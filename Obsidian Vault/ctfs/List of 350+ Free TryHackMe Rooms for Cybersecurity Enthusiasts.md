@@ -479,6 +479,8 @@
 
 - [ ] [TryHackMe | GamingServer](https://tryhackme.com/room/gamingserver)
 
+- [ ] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
+
 - [ ] [TryHackMe | OverlayFS - CVE-2021-3493](https://tryhackme.com/room/overlayfs)
 
 - [ ] [TryHackMe | Psycho Break](https://tryhackme.com/room/psychobreak)

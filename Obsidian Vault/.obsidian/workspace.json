@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
+                "file": "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IDOR Hunting on Bose.com"
+              "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "ctfs/active directory tryhackme free rooms.md",
+    "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "OSCP Prepration/enum/port scanning/Nmap Port Scanning.md",
     "OSCP Prepration/enum/port scanning",
     "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
@@ -192,7 +194,6 @@
     "OSCP Prepration/notes",
     "OSCP Prepration/notes/programming/Bash/Command Substitution $(...).md",
     "OSCP Prepration/notes/programming/Bash/Basics.md",
-    "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "Untitled.md",
     "bug bounty notes/bug bounty/Complete Guide of OWASP ZAP.md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
@@ -201,7 +202,6 @@
     "ctfs/vulnet-active.md",
     "bug bounty notes/BAC/Broken Access Control reports case study/IDOR - Delete all Licenses and certifications from users account using CreateOrUpdateHackerCertification GraphQL query.md",
     "ctfs/windows tryhackme free rooms.md",
-    "ctfs/active directory tryhackme free rooms.md",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
     "OSCP Prepration/notes/Active Directory/exploitations/exploitations.md",
     "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
