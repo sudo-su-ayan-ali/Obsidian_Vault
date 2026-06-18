@@ -39,3 +39,11 @@ X-HackerOne-Research: [H1 username]
 	- Marketing & communications
 		- Review your subscription status for email and mobile app notifications. If you’d like to receive Bose communications related to new products, promotions, and more, please subscribe below. If your current status is “Not chosen,” you will not receive these communications and do not need to unsubscribe.
 - on /orders :-
+- types of id or other parameters:
+
+| parameters | value                                                                                           | type                              | reason for used in request                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------- |
+| dwsid      | dwsid=z6SZe0tKxXO7ItDY4c-2ebK8SBh0uaxm-yHlr08yhx4keWUyxJKw7SBjgS6TTg9YFEoic4gvVT1ctBvi2KqP1A==; | **visitor session ID**            | **Salesforce Commerce Cloud** (formerly Demandware) that stores your current **visitor session ID** |
+| _cfuvid    | _cfuvid=S2wjtAfqD0TH2CAJIjR6mhFUL07IfDkf6t5moiDrqeg-1779877836303-0.0.1.1-604800000             | security cookie for rate limiting | **cookie to distinguish between users from the same IP address.**                                   |
+|            |                                                                                                 |                                   |                                                                                                     |
+|            |                                                                                                 |                                   |                                                                                                     |

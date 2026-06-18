@@ -11,10 +11,14 @@
             "id": "e8ff86c379ab4f86",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "IDOR Hunting on Bose.com"
             }
           }
         ]
@@ -179,43 +183,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "e57ab6130f821a81",
+  "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "OSCP Prepration/enum/port scanning/Nmap Port Scanning.md",
+    "OSCP Prepration/enum/port scanning",
+    "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
+    "OSCP Prepration/enum",
+    "OSCP Prepration/notes",
+    "OSCP Prepration/notes/programming/Bash/Command Substitution $(...).md",
+    "OSCP Prepration/notes/programming/Bash/Basics.md",
+    "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "Untitled.md",
     "bug bounty notes/bug bounty/Complete Guide of OWASP ZAP.md",
-    "OSCP Prepration/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
-    "OSCP Prepration/PrivEsc/Linux PrivEsc I.md",
+    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
+    "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
     "ctfs/Hack The Box Free Rooms.md",
-    "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "ctfs/vulnet-active.md",
     "bug bounty notes/BAC/Broken Access Control reports case study/IDOR - Delete all Licenses and certifications from users account using CreateOrUpdateHackerCertification GraphQL query.md",
     "ctfs/windows tryhackme free rooms.md",
     "ctfs/active directory tryhackme free rooms.md",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
-    "OSCP Prepration/Active Directory/exploitations/exploitations.md",
-    "OSCP Prepration/Active Directory/exploitations/AD-exploitation methodology.md",
-    "OSCP Prepration/Active Directory/Setup/Windows 10-01.md",
-    "OSCP Prepration/Active Directory/Setup/DC01 setup.md",
-    "OSCP Prepration/Active Directory/Setup/Active Directory + Red Team Lab.md",
-    "OSCP Prepration/Active Directory/exploitations",
-    "OSCP Prepration/Active Directory/Setup",
-    "OSCP Prepration/Active Directory",
+    "OSCP Prepration/notes/Active Directory/exploitations/exploitations.md",
+    "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
+    "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
+    "OSCP Prepration/notes/Active Directory/Setup/DC01 setup.md",
+    "OSCP Prepration/notes/Active Directory/Setup/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/notes/Active Directory/exploitations",
+    "OSCP Prepration/notes/Active Directory/Setup",
+    "OSCP Prepration/notes/Active Directory",
     "bug bounty notes/BAC/Broken Access Control reports case study/Insecure Direct Object Reference (IDOR) Allows Viewing Private Report Details via bugs.json Endpoint.md",
     "bug bounty notes/BAC/Broken Access Control reports case study/IDOR allow access to payments data of any user.md",
     "bug bounty notes/BAC/IDOR/Phase 1.md",
     "plans/workout plan of my Qalbi 🥰.md",
     "bug bounty notes/bug bounty/Targets from hackerone.md",
-    "OSCP Prepration/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md",
-    "bug bounty notes/bug bounty/IDOR Bug Bounty On BOOKING.COM.md",
-    "bug bounty notes/bug bounty/bug hunting on Dell.md",
-    "bug bounty notes/bug bounty/12-3-2026  testing working.md",
-    "bug bounty notes/BAC/IDOR/Phase 3.md",
     "bug bounty notes/bug bounty/IDOR",
     "bug bounty notes/BAC/IDOR",
     "Pasted image 20260301195620.png",
     "bug bounty notes/BAC",
     "LLM learning/Pytorch",
-    "LLM learning",
     "Pasted image 20260304195141.png",
     "Pasted image 20260304194314.png",
     "Pasted image 20260304194242.png",
@@ -224,8 +229,6 @@
     "Pasted image 20260304153025.png",
     "Pasted image 20260304145116.png",
     "Pasted image 20260304143203.png",
-    "Pasted image 20260304133524.png",
-    "ctfs",
-    "OSCP Prepration/PrivEsc"
+    "Pasted image 20260304133524.png"
   ]
 }
