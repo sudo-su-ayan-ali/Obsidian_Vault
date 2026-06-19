@@ -1,0 +1,2 @@
+- get all the ports find the service which is running and start futher enum on the service. now i am listing basic enum for such comman services are running on the machine
+- 
