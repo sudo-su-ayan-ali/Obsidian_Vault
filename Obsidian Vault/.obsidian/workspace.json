@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+                "file": "ctfs/OSCP+ free practice machines.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
+              "title": "OSCP+ free practice machines"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "e8ff86c379ab4f86",
   "lastOpenFiles": [
+    "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+    "ctfs/OSCP+ free practice machines.md",
     "ctfs/active directory tryhackme free rooms.md",
     "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "OSCP Prepration/enum/port scanning/Nmap Port Scanning.md",
@@ -202,7 +204,6 @@
     "ctfs/vulnet-active.md",
     "bug bounty notes/BAC/Broken Access Control reports case study/IDOR - Delete all Licenses and certifications from users account using CreateOrUpdateHackerCertification GraphQL query.md",
     "ctfs/windows tryhackme free rooms.md",
-    "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
     "OSCP Prepration/notes/Active Directory/exploitations/exploitations.md",
     "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
     "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",

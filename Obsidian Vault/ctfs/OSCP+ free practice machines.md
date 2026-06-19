@@ -1,0 +1,16 @@
+- kenobi https://tryhackme.com/room/kenobi
+- ignite https://tryhackme.com/room/ignite
+- Thompson https://tryhackme.com/room/bsidesgtthompson
+- Mr. Robot https://tryhackme.com/room/mrrobot
+- Blue https://tryhackme.com/room/blue
+- Kioptrix1 https://download.vulnhub.com/kioptrix/Kioptrix_Level_1.rar
+- kioptrix2 https://download.vulnhub.com/kioptrix/Kioptrix_Level_2-update.rar
+- kioptrix3 https://download.vulnhub.com/kioptrix/KVM3.rar
+- kioptrix4 https://download.vulnhub.com/kioptrix/Kioptrix4_vmware.rar
+- kioptrix5 https://download.vulnhub.com/kioptrix/kiop2014_fix.zip
+- Stapler https://download.vulnhub.com/stapler/Stapler.zip
+- VulnOS1 https://download.vulnhub.com/vulnos/VulnOS.vdi-vbox.7z
+- Vul OS2 https://download.vulnhub.com/vulnos/VulnOSv2.7z
+- SickOs1 https://download.vulnhub.com/sickos/sick0s1.1.7z
+- SickOs2 https://download.vulnhub.com/sickos/sick0s1.2.zip
+- 
