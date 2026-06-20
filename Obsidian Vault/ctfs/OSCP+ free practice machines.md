@@ -1,4 +1,4 @@
-- kenobi https://tryhackme.com/room/kenobi
+- kenobi https://tryhackme.com/room/kenobi done
 - ignite https://tryhackme.com/room/ignite
 - Thompson https://tryhackme.com/room/bsidesgtthompson
 - Mr. Robot https://tryhackme.com/room/mrrobot
