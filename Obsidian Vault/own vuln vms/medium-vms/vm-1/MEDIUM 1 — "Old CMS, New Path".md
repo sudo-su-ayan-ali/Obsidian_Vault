@@ -85,8 +85,8 @@ Replace or add the relevant stanza (substitute `eth0` with your actual interface
 
 ```
 # The primary network interface
-auto eth0
-iface eth0 inet static
+auto enp0s3
+iface enp0s3 inet static
     address 192.168.56.10
     netmask 255.255.255.0
     gateway 192.168.56.1
@@ -100,7 +100,7 @@ Apply:
 
 ```bash
 systemctl restart networking
-ip addr show eth0
+ip addr show enp0s3
 ```
 
 ### 2c. Timezone to UTC

@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "own vuln vms/medium-vms/vm-1/MEDIUM 1 — \"Old CMS, New Path\".md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5
+    "width": 437.5,
+    "collapsed": true
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -183,7 +184,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "e57ab6130f821a81",
+  "active": "9117383de201bb3c",
   "lastOpenFiles": [
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png",
     "own vuln vms/medium-vms/vm-1/MEDIUM 1 — \"Old CMS, New Path\".md",
