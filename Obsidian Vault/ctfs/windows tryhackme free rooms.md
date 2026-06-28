@@ -14,4 +14,4 @@
     
 -  [TryHackMe | Blue](https://tryhackme.com/room/blue)
 
-- [**TryHackMe  | Ice**](https://tryhackme.com/room/ice)
+-  [TryHackMe  | Ice](https://tryhackme.com/room/ice)
