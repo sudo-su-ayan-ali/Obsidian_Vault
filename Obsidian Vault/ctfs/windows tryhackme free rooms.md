@@ -13,3 +13,5 @@
 -  [TryHackMe | Anthem](https://tryhackme.com/room/anthem)
     
 -  [TryHackMe | Blue](https://tryhackme.com/room/blue)
+
+- [**TryHackMe  | Ice**](https://tryhackme.com/room/ice)
