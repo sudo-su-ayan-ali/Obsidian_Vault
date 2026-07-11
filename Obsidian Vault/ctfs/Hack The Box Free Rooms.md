@@ -7,24 +7,24 @@ Includes Starting Point machines, retired machines, active free machines, and fr
 
 ## 📌 Starting Point Machines (Beginner-Friendly)
 
-| Machine       | Difficulty | Notes |
-|---------------|-----------|-------|
-| Meow          | Very Easy | Intro to Linux enumeration |
-| Fawn          | Very Easy | Basic Linux priv esc |
-| Dancing       | Easy      | Web application intro |
-| Explosion     | Easy      | Basic web exploitation |
-| Preignition   | Easy-Med  | Linux privilege escalation |
-| Ignition      | Medium    | Windows priv esc intro |
-| Appointment   | Medium    | Service enumeration + exploit |
-| Sequel        | Medium    | Multi-step web challenge |
-| Crocodile     | Medium    | Linux enumeration & exploitation |
-| Tactics       | Medium    | Windows AD enumeration |
-| Pennyworth    | Medium    | Linux privilege escalation |
-| Archetype     | Medium    | Windows SMB enumeration |
-| Shield        | Medium    | Windows priv escalation |
-| Pathfinder    | Medium    | Service enumeration |
-| Oopsie        | Medium-Hard | Linux priv escalation |
-| Vaccine       | Medium-Hard | Kernel exploitation |
+| Machine     | Difficulty  | Notes                            |
+| ----------- | ----------- | -------------------------------- |
+| Meow        | Very Easy   | Intro to Linux enumeration       |
+| Fawn        | Very Easy   | Basic Linux priv esc             |
+| Dancing     | Easy        | Web application intro            |
+| Explosion   | Easy        | Basic web exploitation           |
+| Preignition | Easy-Med    | Linux privilege escalation       |
+| Ignition    | Medium      | Windows priv esc intro           |
+| Appointment | Medium      | Service enumeration + exploit    |
+| Sequel      | Medium      | Multi-step web challenge         |
+| Crocodile   | Medium      | Linux enumeration & exploitation |
+| Tactics     | Medium      | Windows AD enumeration           |
+| Pennyworth  | Medium      | Linux privilege escalation       |
+| Archetype   | Medium      | Windows SMB enumeration          |
+| Shield      | Medium      | Windows priv escalation          |
+| Pathfinder  | Medium      | Service enumeration              |
+| Oopsie      | Medium-Hard | Linux priv escalation            |
+| Vaccine     | Medium-Hard | Kernel exploitation              |
 
 ---
 
@@ -54,13 +54,13 @@ Includes Starting Point machines, retired machines, active free machines, and fr
 
 ## 📌 Active Machines (Free Access)
 
-| Machine       | Difficulty | Notes |
-|---------------|-----------|-------|
-| Active        | Medium    | Windows AD enumeration |
-| Forest        | Medium    | Linux priv escalation |
-| Access        | Medium    | Windows SMB enumeration |
-| Traceback     | Medium-Hard | Linux priv escalation |
-| OpenAdmin     | Medium-Hard | Windows RCE |
+| Machine   | Difficulty  | Notes                   |
+| --------- | ----------- | ----------------------- |
+| Active    | Medium      | Windows AD enumeration  |
+| Forest    | Medium      | Linux priv escalation   |
+| Access    | Medium      | Windows SMB enumeration |
+| Traceback | Medium-Hard | Linux priv escalation   |
+| OpenAdmin | Medium-Hard | Windows RCE             |
 
 *Active machines are accessible to all users; difficulty varies.*
 

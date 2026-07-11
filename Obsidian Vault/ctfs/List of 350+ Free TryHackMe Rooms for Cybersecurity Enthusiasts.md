@@ -427,13 +427,13 @@
 
 - [ ] [TryHackMe | Investigating Windows 3.x](https://tryhackme.com/room/investigatingwindows3)
 
-- [ ] [TryHackMe | Blueprint](https://tryhackme.com/room/blueprint)
+- [x] [TryHackMe | Blueprint](https://tryhackme.com/room/blueprint)
 
 - [ ] [TryHackMe | VulnNet: Active](https://tryhackme.com/room/vulnnetactive)
 
-- [ ] [TryHackMe | Anthem](https://tryhackme.com/room/anthem)
+- [x] [TryHackMe | Anthem](https://tryhackme.com/room/anthem)
 
-- [ ] [TryHackMe | Blue](https://tryhackme.com/room/blue)
+- [x] [TryHackMe | Blue](https://tryhackme.com/room/blue)
 
 ## Active Directory
 
@@ -477,21 +477,21 @@
 
 ---
 
-- [ ] [TryHackMe | GamingServer](https://tryhackme.com/room/gamingserver)
+- [x] [TryHackMe | GamingServer](https://tryhackme.com/room/gamingserver)
 
-- [ ] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
+- [x] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
 
-- [ ] [TryHackMe | OverlayFS - CVE-2021-3493](https://tryhackme.com/room/overlayfs)
+- [x] [TryHackMe | OverlayFS - CVE-2021-3493](https://tryhackme.com/room/overlayfs)
 
-- [ ] [TryHackMe | Psycho Break](https://tryhackme.com/room/psychobreak)
+- [x] [TryHackMe | Psycho Break](https://tryhackme.com/room/psychobreak)
 
-- [ ] [TryHackMe | Bounty Hacker](https://tryhackme.com/room/cowboyhacker)
+- [x] [TryHackMe | Bounty Hacker](https://tryhackme.com/room/cowboyhacker)
 
-- [ ] [TryHackMe | Fowsniff CTF](https://tryhackme.com/room/ctf)
+- [x] [TryHackMe | Fowsniff CTF](https://tryhackme.com/room/ctf)
 
-- [ ] [TryHackMe | RootMe](https://tryhackme.com/room/rrootme)
+- [x] [TryHackMe | RootMe](https://tryhackme.com/room/rrootme)
 
-- [ ] [TryHackMe | AttackerKB](https://tryhackme.com/room/attackerkb)
+- [x] [TryHackMe | AttackerKB](https://tryhackme.com/room/attackerkb)
 
 - [ ] [TryHackMe | Pickle Rick](https://tryhackme.com/room/picklerick)
 
@@ -501,9 +501,9 @@
 
 - [ ] [TryHackMe | Thompson](https://tryhackme.com/room/bsidesgtthompson)
 
-- [ ] [TryHackMe | Simple CTF](https://tryhackme.com/room/easyctf)
+- [x] [TryHackMe | Simple CTF](https://tryhackme.com/room/easyctf)
 
-- [ ] [TryHackMe | LazyAdmin](https://tryhackme.com/room/lazyadmin)
+- [x] [TryHackMe | LazyAdmin](https://tryhackme.com/room/lazyadmin)
 
 - [ ] [TryHackMe | Anonforce](https://tryhackme.com/room/bsidesgtanonforce)
 
@@ -575,7 +575,7 @@
 
 - [ ] [TryHackMe | Archangel](https://tryhackme.com/room/archangel)
 
-- [ ] [TryHackMe | Cyborg](https://tryhackme.com/room/cyborgt8)
+- [x] [TryHackMe | Cyborg](https://tryhackme.com/room/cyborgt8)
 
 - [ ] [TryHackMe | Lunizz CTF](https://tryhackme.com/room/lunizzctfnd)
 
