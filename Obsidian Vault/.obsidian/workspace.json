@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+                "file": "myvideos/Script Root Access to My Journey.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
-            }
-          },
-          {
-            "id": "a864497d138e0123",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Script Root Access to My Journey"
             }
           },
           {
@@ -41,33 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/BAC/IDOR/Phase 1.md",
-                "mode": "source",
+                "file": "bug bounty notes/BAC/IDOR/idor.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Phase 1"
+              "title": "idor"
             }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "a5b256e2e8cae2c0",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "139ac514b47d4ab4",
+            "id": "07a6edd28e5fa68d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
+                "file": "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IDOR Hunting on Bose.com"
+              "title": "Bug Hunt on nykaa"
             }
           }
         ]
@@ -233,25 +212,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "a864497d138e0123",
+  "active": "a7131ac4038456ca",
   "lastOpenFiles": [
+    "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
+    "myvideos/Script Root Access to My Journey.md",
+    "myvideos",
+    "bug bounty notes/BAC/IDOR/idor.md",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
     "Untitled.md",
-    "bug bounty notes/BAC/IDOR/Phase 1.md",
+    "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
+    "OSCP Prepration/notes/programming/Bash/Deep Dive In Loops.md",
+    "OSCP Prepration/notes/programming/cpp/chapter 1.md",
     "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "Untitled.base",
-    "2026-07-07.md",
     "Untitled.canvas",
+    "Untitled 1.md",
+    "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
     "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
+    "OSCP Prepration/notes/programming/cpp",
+    "bug bounty notes/BAC/IDOR/Phase 3.md",
+    "bug bounty notes/BAC/IDOR/Phase 2.md",
+    "bug bounty notes/BAC/IDOR/Phase 1.md",
+    "2026-07-07.md",
     "own vuln vms/medium-vms/vm-1/MEDIUM 1 — _Old CMS, New Path_.md",
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png",
     "bug bounty notes/BAC/Broken Access Control reports case study/SSRF.md",
     "bug bounty notes/toolings",
     "bug bounty notes/BAC/bug hunts/bose.com from hackerone.md",
     "bug bounty notes/BAC/bug hunts",
-    "bug bounty notes/BAC/IDOR/idor.md",
-    "bug bounty notes/BAC/IDOR/Phase 2.md",
-    "bug bounty notes/BAC/IDOR/Phase 3.md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (file).md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (cat).md",
@@ -259,20 +247,11 @@
     "OSCP Prepration/notes/Cryptography/Password Attacks.md",
     "ctfs/OSCP+ free practice machines.md",
     "ctfs/Hack The Box Free Rooms.md",
-    "own vuln vms/medium-vms/vm-1/MEDIUM 1 — \"Old CMS, New Path\".md",
     "own vuln vms/medium-vms/vm-1",
-    "own vuln vms/MEDIUM 1 — \"Old CMS, New Path\".md",
-    "own vuln vms/vm-1/MEDIUM 1 — \"Old CMS, New Path\".md",
     "own vuln vms/medium-vms",
     "own vuln vms/vm-1",
     "own vuln vms",
-    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
-    "en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md",
     "en/authentication/connecting-to-github-with-ssh",
-    "en/authentication",
-    "en",
-    "ctfs/windows tryhackme free rooms.md",
-    "OSCP Prepration/ad machine methodology.md",
     "Pasted image 20260301195620.png",
     "Pasted image 20260304195141.png",
     "Pasted image 20260304194314.png",

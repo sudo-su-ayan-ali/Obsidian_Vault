@@ -128,9 +128,9 @@ GET /api/user/456        → What happens?
 
 ### **Your Checklist for Today**
 
-- [ ] Create 2 test accounts
-- [ ] Set up Burp proxy
-- [ ] Use the app for 15 minutes (logged in as Account 1)
+- [x] Create 2 test accounts
+- [x] Set up Burp proxy
+- [x] Use the app for 15 minutes (logged in as Account 1)
 - [ ] Go to **Proxy → HTTP History** and list endpoints with IDs
 - [ ] Create spreadsheet with 5-10 endpoints
 - [ ] Test your own data (account 1 ID) — confirm it works

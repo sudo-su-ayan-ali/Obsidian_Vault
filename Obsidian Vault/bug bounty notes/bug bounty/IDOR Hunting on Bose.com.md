@@ -24,10 +24,12 @@ X-HackerOne-Research: [H1 username]
 ## ☢️ Target basic recon info on github:
 	https://github.com/sudo-su-ayan-ali/docs/tree/main/bug_hunting/bose
 
-## 🧑🏻‍🤝‍🧑🏾 users details:
+## 🧑🏻‍🤝‍🧑🏾 users details: on bose.com
 - #user1= cythom12345@proton.me #passwd1= Cythom@12345 -> chrome
 - #user2= cybus12345@proton.me #passwd2= Cybus@12345 -> firefox
-
+### users details on testing.bose.com
+- #user1 = cythom12345@proton.me #passwd1= Cybus@12345 -> chrome
+- #user2= cybus12345@proton.me #passwd2= Cythom@12345 -> firefox
 ## 🗺️ Mapping all the areas:
 - Mapping using **user1** for maximum manual mapping for the site.
 
@@ -41,9 +43,9 @@ X-HackerOne-Research: [H1 username]
 - on /orders :-
 - types of id or other parameters:
 
-| parameters | value                                                                                           | type                              | reason for used in request                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------- |
-| dwsid      | dwsid=z6SZe0tKxXO7ItDY4c-2ebK8SBh0uaxm-yHlr08yhx4keWUyxJKw7SBjgS6TTg9YFEoic4gvVT1ctBvi2KqP1A==; | **visitor session ID**            | **Salesforce Commerce Cloud** (formerly Demandware) that stores your current **visitor session ID** |
-| _cfuvid    | _cfuvid=S2wjtAfqD0TH2CAJIjR6mhFUL07IfDkf6t5moiDrqeg-1779877836303-0.0.1.1-604800000             | security cookie for rate limiting | **cookie to distinguish between users from the same IP address.**                                   |
-|            |                                                                                                 |                                   |                                                                                                     |
-|            |                                                                                                 |                                   |                                                                                                     |
+| parameters | value                                                                                     | type                   |
+| ---------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| dwsid      | z6SZe0tKxXO7ItDY4c-2ebK8SBh0uaxm-yHlr08yhx4keWUyxJKw7SBjgS6TTg9YFEoic4gvVT1ctBvi2KqP1A==; | **visitor session ID** |
+| sid        | jan7dqJooER_VoVK7-2DWgK0V23Sfzvv580;                                                      | session id             |
+|            |                                                                                           |                        |
+|            |                                                                                           |                        |

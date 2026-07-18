@@ -493,23 +493,23 @@
 
 - [x] [TryHackMe | AttackerKB](https://tryhackme.com/room/attackerkb)
 
-- [ ] [TryHackMe | Pickle Rick](https://tryhackme.com/room/picklerick)
+- [x] [TryHackMe | Pickle Rick](https://tryhackme.com/room/picklerick)
 
-- [ ] [TryHackMe | c4ptur3-th3-fl4g](https://tryhackme.com/room/c4ptur3th3fl4g)
+- [x] [TryHackMe | c4ptur3-th3-fl4g](https://tryhackme.com/room/c4ptur3th3fl4g)
 
-- [ ] [TryHackMe | Library](https://tryhackme.com/room/bsidesgtlibrary)
+- [x] [TryHackMe | Library](https://tryhackme.com/room/bsidesgtlibrary)
 
-- [ ] [TryHackMe | Thompson](https://tryhackme.com/room/bsidesgtthompson)
+- [x] [TryHackMe | Thompson](https://tryhackme.com/room/bsidesgtthompson)
 
 - [x] [TryHackMe | Simple CTF](https://tryhackme.com/room/easyctf)
 
 - [x] [TryHackMe | LazyAdmin](https://tryhackme.com/room/lazyadmin)
 
-- [ ] [TryHackMe | Anonforce](https://tryhackme.com/room/bsidesgtanonforce)
+- [x] [TryHackMe | Anonforce](https://tryhackme.com/room/bsidesgtanonforce)
 
-- [ ] [TryHackMe | Ignite](https://tryhackme.com/room/ignite)
+- [x] [TryHackMe | Ignite](https://tryhackme.com/room/ignite)
 
-- [ ] [TryHackMe | Wgel CTF](https://tryhackme.com/room/wgelctf)
+- [x] [TryHackMe | Wgel CTF](https://tryhackme.com/room/wgelctf)
 
 - [ ] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
 
