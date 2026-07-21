@@ -511,9 +511,9 @@
 
 - [x] [TryHackMe | Wgel CTF](https://tryhackme.com/room/wgelctf)
 
-- [ ] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
+- [x] [TryHackMe | Kenobi](https://tryhackme.com/room/kenobi)
 
-- [ ] [TryHackMe | Dav](https://tryhackme.com/room/bsidesgtdav)
+- [x] [TryHackMe | Dav](https://tryhackme.com/room/bsidesgtdav)
 
 - [ ] [TryHackMe | Ninja Skills](https://tryhackme.com/room/ninjaskills)
 

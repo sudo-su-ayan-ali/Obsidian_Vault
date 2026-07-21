@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "myvideos/Script Root Access to My Journey.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Script Root Access to My Journey"
+              "title": "Untitled"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bug bounty notes/BAC/IDOR/idor.md",
+                "file": "BurpTUI/README.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "idor"
+              "title": "README"
             }
           },
           {
@@ -49,7 +49,8 @@
               "title": "Bug Hunt on nykaa"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,8 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -212,24 +212,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "a7131ac4038456ca",
+  "active": "437d9c1d946ed9f9",
   "lastOpenFiles": [
-    "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
-    "myvideos/Script Root Access to My Journey.md",
-    "myvideos",
-    "bug bounty notes/BAC/IDOR/idor.md",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+    "BurpTUI/Plan.md",
+    "BurpTUI/README.md",
+    "BurpTUI/LICENSE",
+    "BurpTUI/BurpTUI_UI_Menu_Design.pdf",
+    "BurpTUI/vcpkg-configuration.json",
+    "BurpTUI/vcpkg.json",
+    "BurpTUI/CMakeLists.txt",
+    "BurpTUI/burptui_burp_style_layout.html",
+    "BurpTUI/tests/test_storage.cpp",
+    "BurpTUI/tests/test_http_parser.cpp",
+    "BurpTUI/tests/test_event_queue.cpp",
+    "BurpTUI/tests/test_encoding.cpp",
+    "BurpTUI/Pasted image.png",
+    "bug bounty notes/BAC/IDOR/idor.md",
     "Untitled.md",
+    "myvideos/Script Root Access to My Journey.md",
+    "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
     "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
     "OSCP Prepration/notes/programming/Bash/Deep Dive In Loops.md",
     "OSCP Prepration/notes/programming/cpp/chapter 1.md",
     "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
-    "Untitled.base",
     "Untitled.canvas",
     "Untitled 1.md",
     "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
     "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
-    "OSCP Prepration/notes/programming/cpp",
     "bug bounty notes/BAC/IDOR/Phase 3.md",
     "bug bounty notes/BAC/IDOR/Phase 2.md",
     "bug bounty notes/BAC/IDOR/Phase 1.md",
@@ -237,21 +247,12 @@
     "own vuln vms/medium-vms/vm-1/MEDIUM 1 — _Old CMS, New Path_.md",
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png",
     "bug bounty notes/BAC/Broken Access Control reports case study/SSRF.md",
-    "bug bounty notes/toolings",
     "bug bounty notes/BAC/bug hunts/bose.com from hackerone.md",
-    "bug bounty notes/BAC/bug hunts",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (file).md",
     "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (cat).md",
     "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
     "OSCP Prepration/notes/Cryptography/Password Attacks.md",
-    "ctfs/OSCP+ free practice machines.md",
-    "ctfs/Hack The Box Free Rooms.md",
-    "own vuln vms/medium-vms/vm-1",
-    "own vuln vms/medium-vms",
-    "own vuln vms/vm-1",
-    "own vuln vms",
-    "en/authentication/connecting-to-github-with-ssh",
     "Pasted image 20260301195620.png",
     "Pasted image 20260304195141.png",
     "Pasted image 20260304194314.png",
@@ -259,7 +260,6 @@
     "Pasted image 20260304153253.png",
     "Pasted image 20260304153102.png",
     "Pasted image 20260304153025.png",
-    "Pasted image 20260304145116.png",
-    "Pasted image 20260304143203.png"
+    "Pasted image 20260304145116.png"
   ]
 }
