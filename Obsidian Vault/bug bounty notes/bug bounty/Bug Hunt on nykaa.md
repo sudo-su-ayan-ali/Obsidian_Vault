@@ -100,3 +100,5 @@ We are not part of a cash/bug bounty program but are happy to issue a certificat
 user1 ---> Firfox
 user2 ---> chrome
 
+#user1 cythom12345@proton.me no passwd auth by otp
+#user2 cybus12345@proton.me no passwd auth by otp

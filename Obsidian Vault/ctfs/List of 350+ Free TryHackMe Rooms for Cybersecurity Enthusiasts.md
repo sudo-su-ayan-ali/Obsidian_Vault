@@ -515,15 +515,15 @@
 
 - [x] [TryHackMe | Dav](https://tryhackme.com/room/bsidesgtdav)
 
-- [ ] [TryHackMe | Ninja Skills](https://tryhackme.com/room/ninjaskills)
+- [x] [TryHackMe | Ninja Skills](https://tryhackme.com/room/ninjaskills)
 
-- [ ] [TryHackMe | Ice](https://tryhackme.com/room/ice)
+- [x] [TryHackMe | Ice](https://tryhackme.com/room/ice)
 
-- [ ] [TryHackMe | Lian_Yu](https://tryhackme.com/room/lianyu)
+- [x] [TryHackMe | Lian_Yu](https://tryhackme.com/room/lianyu)
 
-- [ ] [TryHackMe | The Cod Caper](https://tryhackme.com/room/thecodcaper)
+- [x] [TryHackMe | The Cod Caper](https://tryhackme.com/room/thecodcaper)
 
-- [ ] [TryHackMe | Blaster](https://tryhackme.com/room/blaster)
+- [x] [TryHackMe | Blaster](https://tryhackme.com/room/blaster)
 
 - [ ] [TryHackMe | Encryption - Crypto 101](https://tryhackme.com/room/encryptioncrypto101)
 
