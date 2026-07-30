@@ -5,6 +5,7 @@
 
 **Tasks:**
 
+
 Install Debian 12 Bookworm (netinstall ISO). During setup: no desktop environment, no SSH server pre-installed (you'll configure it manually), standard system utilities only. Allocate 20 GB disk, 2 GB RAM — enough that the CMS and MySQL run comfortably.
 
 Post-install configuration. Set hostname to something neutral like `webserver` or `cms-prod`. Configure a static IP on the host-only or NAT adapter so the student's attacking machine always reaches it at the same address. Set timezone to UTC.
