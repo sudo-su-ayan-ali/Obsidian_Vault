@@ -483,19 +483,11 @@
 
 - [x] [TryHackMe | OverlayFS - CVE-2021-3493](https://tryhackme.com/room/overlayfs)
 
-- [x] [TryHackMe | Psycho Break](https://tryhackme.com/room/psychobreak)
-
 - [x] [TryHackMe | Bounty Hacker](https://tryhackme.com/room/cowboyhacker)
-
-- [x] [TryHackMe | Fowsniff CTF](https://tryhackme.com/room/ctf)
 
 - [x] [TryHackMe | RootMe](https://tryhackme.com/room/rrootme)
 
 - [x] [TryHackMe | AttackerKB](https://tryhackme.com/room/attackerkb)
-
-- [x] [TryHackMe | Pickle Rick](https://tryhackme.com/room/picklerick)
-
-- [x] [TryHackMe | c4ptur3-th3-fl4g](https://tryhackme.com/room/c4ptur3th3fl4g)
 
 - [x] [TryHackMe | Library](https://tryhackme.com/room/bsidesgtlibrary)
 
@@ -515,8 +507,6 @@
 
 - [x] [TryHackMe | Dav](https://tryhackme.com/room/bsidesgtdav)
 
-- [x] [TryHackMe | Ninja Skills](https://tryhackme.com/room/ninjaskills)
-
 - [x] [TryHackMe | Ice](https://tryhackme.com/room/ice)
 
 - [x] [TryHackMe | Lian_Yu](https://tryhackme.com/room/lianyu)
@@ -525,23 +515,11 @@
 
 - [x] [TryHackMe | Blaster](https://tryhackme.com/room/blaster)
 
-- [ ] [TryHackMe | Encryption - Crypto 101](https://tryhackme.com/room/encryptioncrypto101)
+- [x] [TryHackMe | Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)
 
-- [ ] [TryHackMe | Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)
-
-- [ ] [TryHackMe | Year of the Rabbit](https://tryhackme.com/room/yearoftherabbit)
-
-- [ ] [TryHackMe | Jack-of-All-Trades](https://tryhackme.com/room/jackofalltrades)
-
-- [ ] [TryHackMe | Madness](https://tryhackme.com/room/madness)
-
-- [ ] [TryHackMe | KoTH Food CTF](https://tryhackme.com/room/kothfoodctf)
-
-- [ ] [TryHackMe | Easy Peasy](https://tryhackme.com/room/easypeasyctf)
+- [x] [TryHackMe | Jack-of-All-Trades](https://tryhackme.com/room/jackofalltrades)
 
 - [ ] [TryHackMe | Tony the Tiger](https://tryhackme.com/room/tonythetiger)
-
-- [ ] [TryHackMe | CTF collection Vol.1](https://tryhackme.com/room/ctfcollectionvol1)
 
 - [ ] [TryHackMe | Smag Grotto](https://tryhackme.com/room/smaggrotto)
 
@@ -551,8 +529,6 @@
 
 - [ ] [TryHackMe | Overpass](https://tryhackme.com/room/overpass)
 
-- [ ] [TryHackMe | Gotta Catch&#39;em All!](https://tryhackme.com/room/pokemon)
-
 - [ ] [TryHackMe | Bolt](https://tryhackme.com/room/bolt)
 
 - [ ] [TryHackMe | Overpass 2 - Hacked](https://tryhackme.com/room/overpass2hacked)
@@ -560,8 +536,6 @@
 - [ ] [TryHackMe | kiba](https://tryhackme.com/room/kiba)
 
 - [ ] [TryHackMe | Poster](https://tryhackme.com/room/poster)
-
-- [ ] [TryHackMe | Chocolate Factory](https://tryhackme.com/room/chocolatefactory)
 
 - [ ] [TryHackMe | Startup](https://tryhackme.com/room/startup)
 
@@ -590,8 +564,6 @@
 - [ ] [TryHackMe | Atlas](https://tryhackme.com/room/atlas)
 
 - [ ] [TryHackMe | VulnNet: Roasted](https://tryhackme.com/room/vulnnetroasted)
-
-- [ ] [TryHackMe | Cat Pictures](https://tryhackme.com/room/catpictures)
 
 - [ ] [TryHackMe | Mustacchio](https://tryhackme.com/room/mustacchio)
 
