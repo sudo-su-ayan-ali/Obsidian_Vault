@@ -48,6 +48,20 @@
               "icon": "lucide-file",
               "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
             }
+          },
+          {
+            "id": "e7c3dea94d0ecaa8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
         ],
         "currentTab": 2
@@ -109,7 +123,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5
+    "width": 437.5,
+    "collapsed": true
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -216,12 +231,12 @@
   },
   "active": "33af6bf2e429c451",
   "lastOpenFiles": [
-    "ctfs/active directory tryhackme free rooms.md",
+    "Untitled.md",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+    "ctfs/active directory tryhackme free rooms.md",
     "OSCP Prepration/notes/Active Directory/time table.md",
     "OSCP Prepration/notes/Forensics/Binwalk.md",
     "bug bounty notes/BAC/IDOR/idor.md",
-    "Untitled.md",
     "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
     "BurpTUI/Plan.md",
     "BurpTUI/README.md",
