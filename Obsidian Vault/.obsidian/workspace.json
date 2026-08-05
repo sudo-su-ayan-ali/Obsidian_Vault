@@ -62,9 +62,23 @@
               "icon": "lucide-file",
               "title": "Untitled"
             }
+          },
+          {
+            "id": "d07cc9af804ad3d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 1.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -123,8 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -229,9 +242,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "33af6bf2e429c451",
+  "active": "d07cc9af804ad3d8",
   "lastOpenFiles": [
     "Untitled.md",
+    "Untitled 1.md",
+    "Screenshot_20260804_192723.png",
+    "Screenshot_20260804_192341.png",
+    "Screenshot_20260804_144441.png",
+    "Screenshot_20260804_144434.png",
+    "Screenshot_20260804_144415.png",
+    "Screenshot_20260804_144358.png",
+    "Screenshot_20260804_144226.png",
+    "Screenshot_20260804_144132.png",
     "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
     "ctfs/active directory tryhackme free rooms.md",
     "OSCP Prepration/notes/Active Directory/time table.md",
@@ -257,7 +279,6 @@
     "OSCP Prepration/notes/programming/cpp/chapter 1.md",
     "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "Untitled.canvas",
-    "Untitled 1.md",
     "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
     "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
     "bug bounty notes/BAC/IDOR/Phase 3.md",
@@ -268,15 +289,6 @@
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png",
     "bug bounty notes/BAC/Broken Access Control reports case study/SSRF.md",
     "bug bounty notes/BAC/bug hunts/bose.com from hackerone.md",
-    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md",
-    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (file).md",
-    "Pasted image 20260301195620.png",
-    "Pasted image 20260304195141.png",
-    "Pasted image 20260304194314.png",
-    "Pasted image 20260304194242.png",
-    "Pasted image 20260304153253.png",
-    "Pasted image 20260304153102.png",
-    "Pasted image 20260304153025.png",
-    "Pasted image 20260304145116.png"
+    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md"
   ]
 }
