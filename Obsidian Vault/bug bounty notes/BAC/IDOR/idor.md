@@ -1,8 +1,3 @@
-so now you explain how i will hunt my first bug in the 2026 and currently june end
-
-6:47 PM
-
-Good — now I'll be direct and practical. No theory padding.
 
 ---
 
@@ -17,6 +12,71 @@ Before methodology, accept these truths about June 2026:
 
 ---
 
+# Manual Recon Framework
+
+## 1. Surface Mapping
+
+| Goal               | Identify Every End Point             |
+| ------------------ | ------------------------------------ |
+| 🔐 Auth            | login, register, forgot password     |
+| 🛒 Business flow   | checkout, cart, refund, coupons, etc |
+| ⚙️ Settings        | Email change, MFA, Api keys          |
+| ⛓️ Integrations    | Oauth, third party apis              |
+| 📦 Hidden Features | beta packages, dev panels            |
+- Note: Before touching burp this app what actually do.
+## 2. Roles and Permission Mapping
+
+| Roles | What they can do | And what they can not do |
+| ----- | ---------------- | ------------------------ |
+| Guest | Browse products  | Accessing Dashboard      |
+| User  | Edit own data    | Edit others              |
+| Admin | Manage Users     | -                        |
+- 80% of IDORs lives here.
+## 3. State & Logic Observation
+
+| Questions                         | And what is it matters       |
+| --------------------------------- | ---------------------------- |
+| what changes happen after login   | Session handling             |
+| what changes happen after upgrade | features getting             |
+| what changes happen after payment | Business logic               |
+| what perameters controls price    | client trust vs server trust |
+- **Evey feature have trust boundary**
+## 4. Perameters Inventory sheet
+
+
+| Endpoint         | method | perameter                   | interesting |
+| ---------------- | ------ | --------------------------- | ----------- |
+| /api/user/update | post   | role_id,email, phone_number | ✅           |
+| /api/cart        | post   | item_id, price              | ✅✅          |
+**key points**
+- Don't fuzz randomly.
+- Buid a perameter hit list
+## 5. Trust Boundary Map
+
+| User Control | Server Control  |
+| ------------ | --------------- |
+| Input field  | Database        |
+| Request body | role validation |
+| Headers      | businuss logic  |
+- if client controls it. question it.
+## 6. Hypothesis Board
+
+
+| Hypothesis           | Board based on     | Tested? | Result |
+| -------------------- | ------------------ | ------- | ------ |
+| can i change role_id | role_id in request | -       | -      |
+## The Recon Loop
+
+```
+graph TD
+	A["Understand feature"] --> B["Map Trust"]
+	B --> C["Compare Roles"]
+	C --> D["Find Assumption"]
+	D --> E["Test Assumption"]
+	E --> F["Repeat"]
+	F --> A
+```
+---
 ### Phase 1 — Program Selection (Day 1)
 
 Don't skip this. Wrong program = wasted weeks.
