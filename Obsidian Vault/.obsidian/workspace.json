@@ -14,11 +14,25 @@
               "type": "markdown",
               "state": {
                 "file": "bug bounty notes/BAC/IDOR/idor.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "idor"
+            }
+          },
+          {
+            "id": "74967e6a44ecc342",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bug Hunt on nykaa"
             }
           },
           {
@@ -41,15 +55,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
+                "file": "Untitled.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "f17409f113f6ba75",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts"
+              "title": "Untitled 2"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -108,7 +137,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5
+    "width": 437.5,
+    "collapsed": true
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -213,12 +243,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "07a6edd28e5fa68d",
+  "active": "f17409f113f6ba75",
   "lastOpenFiles": [
-    "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
-    "Untitled 1.md",
-    "bug bounty notes/BAC/IDOR/idor.md",
+    "Untitled 2.md",
     "Untitled.md",
+    "ctfs/active directory tryhackme free rooms.md",
+    "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
+    "bug bounty notes/BAC/IDOR/idor.md",
+    "Untitled 1.md",
+    "ctfs/List of 350+ Free TryHackMe Rooms for Cybersecurity Enthusiasts.md",
     "Screenshot_20260804_192723.png",
     "Screenshot_20260804_192341.png",
     "Screenshot_20260804_144441.png",
@@ -227,10 +260,8 @@
     "Screenshot_20260804_144358.png",
     "Screenshot_20260804_144226.png",
     "Screenshot_20260804_144132.png",
-    "ctfs/active directory tryhackme free rooms.md",
     "OSCP Prepration/notes/Active Directory/time table.md",
     "OSCP Prepration/notes/Forensics/Binwalk.md",
-    "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
     "BurpTUI/Plan.md",
     "BurpTUI/README.md",
     "BurpTUI/LICENSE",

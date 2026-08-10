@@ -102,3 +102,51 @@ user2 ---> chrome
 
 #user1 cythom12345@proton.me no passwd auth by otp
 #user2 cybus12345@proton.me no passwd auth by otp
+
+## untested things
+## urls which have sensitive data 
+
+```
+https://www.nykaa.com/app-api/index.php  
+https://www.nykaa.com/app-api/index.php/customer/check_existence  
+https://www.nykaa.com/app-api/index.php/customer/send_otp  
+https://www.nykaa.com/app-api/index.php/customer/suggest_mobile_number  
+https://www.nykaa.com/app-api/index.php/products/load_wishlist  
+https://www.nykaa.com/app-api/index.php/react/navigation?forDevice=desktop  
+https://www.nykaa.com/app-api/index.php/store_api/v1/getAllStores  
+https://www.nykaa.com/app-api/index.php/user  
+https://www.nykaa.com/app-api/index.php/user/update_profile/  
+https://www.nykaa.com/app-api/index.php/user/user_details  
+https://www.nykaa.com/customer/account/ajaxLogin/  
+https://www.nykaa.com/fe-api/omsApis/v1/orderList?email=cythom12345%40proton.me&offset=4&domain=NYKAA  
+https://www.nykaa.com/fe-api/vault/system/info/getVaultParamsWithUserDetails  
+https://www.nykaa.com/gateway-api/user/otp/email-verification/v1/send  
+https://www.nykaa.com/ReactConfig.php  
+https://www.nykaa.com/ro5UZCPLnfJB3PD2D-3Yw59scQo/bYaur2u9ki7Gf0umiL/YhJzb2w0Ag/NDV6K3/spEGIB  
+https://www.nykaa.com/ro5UZCPLnfJB3PD2D-3Yw59scQo/cDaur2u9ki7G/Sx16b2w0Ag/Rh5XC1/YyBmB5  
+https://www.nykaa.com/ro5UZCPLnfJB3PD2D-3Yw59scQo/cDaur2u9ki7G/Sx16b2w0Ag/Rh5XC1/YyBmB5?v=cd43f730-9d39-79a2-d2ee-31190df91737
+```
+
+
+## sensetive perameters
+
+```
+{"setPath":{},"userId":"7251765824460563","sessionId":"1511121536923142","sessionProperties":{"time":1785647721511,"id":"1511121536923142","initial_pageview_info":{"time":1785647721511,"id":"173994328729144","title":"Buy Cosmetics Products & Beauty Products Online in India at Best Price | Nykaa","url":{"domain":"www.nykaa.com","path":"/","query":"","hash":""}},"search_keyword":"","referrer":"","utm":{"source":"","medium":"","term":"","content":"","campaign":""}}}; _cs_id=5ae6b997-533d-ae92-fc66-35968eecd565.1785216087.2.1785647722.1785647722.1780035253.1819380087740.1.x; _hp5_let.5185273=1785647725197; PHPSESSID=L5uLsmaYmY9rNcd1785647738865; PRIVE_TIER=null; pro=false; _gcl_au=
+```
+
+## cookie 
+
+```
+ecoded form:-
+
+Newrelic: eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjEyMjUxNTkiLCJhcCI6IjEwMDE0NzQ3MTciLCJpZCI6IjU5YzU3YjQxNzIyNTgwNjIiLCJ0ciI6IjQzZGUzYTRjYWRiNWRiNTM1M2Q2OWMxMTlhZjhlODAwIiwidGkiOjE3ODU2NDk2NjgzMTF
+
+decoded form:-
+Newrelic: 
+{"v":[0,1],"d":{"ty":"Browser","ac":"1225159","ap":"1001474717","id":"59c57b4172258062","tr":"43de3a4cadb5db5353d69c119af8e800","ti":1785649668311}}
+```
+
+userids:-
+
+cybus: `"id":"106795870"`
+cythom: ``
