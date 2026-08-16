@@ -28,7 +28,7 @@
               "type": "markdown",
               "state": {
                 "file": "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ctfs/active directory tryhackme free rooms.md",
-                "mode": "preview",
+                "file": "OSCP Prepration/notes/Active Directory/NOTES/Active Directory core.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "active directory tryhackme free rooms"
+              "title": "Active Directory core"
             }
           },
           {
@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -137,8 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -243,11 +242,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "f17409f113f6ba75",
+  "active": "33af6bf2e429c451",
   "lastOpenFiles": [
     "Untitled 2.md",
-    "Untitled.md",
+    "OSCP Prepration/notes/Active Directory/NOTES/Active Directory core.md",
+    "OSCP Prepration/notes/Active Directory/NOTES/Kerberos.md",
+    "OSCP Prepration/notes/Active Directory/time table.md",
+    "OSCP Prepration/notes/Active Directory/NOTES",
     "ctfs/active directory tryhackme free rooms.md",
+    "Untitled.md",
     "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
     "bug bounty notes/BAC/IDOR/idor.md",
     "Untitled 1.md",
@@ -260,7 +263,6 @@
     "Screenshot_20260804_144358.png",
     "Screenshot_20260804_144226.png",
     "Screenshot_20260804_144132.png",
-    "OSCP Prepration/notes/Active Directory/time table.md",
     "OSCP Prepration/notes/Forensics/Binwalk.md",
     "BurpTUI/Plan.md",
     "BurpTUI/README.md",
@@ -273,7 +275,6 @@
     "BurpTUI/tests/test_storage.cpp",
     "BurpTUI/tests/test_http_parser.cpp",
     "BurpTUI/tests/test_event_queue.cpp",
-    "BurpTUI/tests/test_encoding.cpp",
     "BurpTUI/Pasted image.png",
     "myvideos/Script Root Access to My Journey.md",
     "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
@@ -289,8 +290,6 @@
     "2026-07-07.md",
     "own vuln vms/medium-vms/vm-1/MEDIUM 1 — _Old CMS, New Path_.md",
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png",
-    "bug bounty notes/BAC/Broken Access Control reports case study/SSRF.md",
-    "bug bounty notes/BAC/bug hunts/bose.com from hackerone.md",
-    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/Deep Dive In BOT Of Cmd (find).md"
+    "bug bounty notes/BAC/Broken Access Control reports case study/SSRF.md"
   ]
 }

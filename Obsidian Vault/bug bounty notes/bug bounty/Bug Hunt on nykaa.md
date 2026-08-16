@@ -146,7 +146,84 @@ Newrelic:
 {"v":[0,1],"d":{"ty":"Browser","ac":"1225159","ap":"1001474717","id":"59c57b4172258062","tr":"43de3a4cadb5db5353d69c119af8e800","ti":1785649668311}}
 ```
 
-userids:-
+## userids:-
 
 cybus: `"id":"106795870"`
 cythom: ``
+
+## How the Url works
+
+```
+"Nykaa","url":{"domain":"www.nykaa.com","path":"/","query":"","hash":""}},"search_keyword":"","referrer":"","utm":{"source":"","medium":"","term":"","content":"","campaign":""}}}; 
+
+```
+
+# Table of high impact features
+
+
+| Features         | impact | go deeper or not |
+| ---------------- | ------ | ---------------- |
+| orders           |        |                  |
+| profile          |        |                  |
+| wallet           |        |                  |
+| wishlist         |        |                  |
+| giftcard         |        |                  |
+| bag              |        |                  |
+| my coupons       |        |                  |
+| my saved payment |        |                  |
+# Features
+
+---
+## orders
+
+
+
+---
+
+## profile
+
+
+
+
+---
+
+## wallet
+
+
+
+
+---
+
+
+## wishlist
+
+
+
+---
+
+## giftcard
+
+
+
+
+---
+
+## bag
+
+
+
+---
+
+## my coupan
+
+
+
+
+---
+
+## my saved payments
+
+
+
+
+---
