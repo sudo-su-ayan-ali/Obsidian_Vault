@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP Prepration/notes/Active Directory/Setup/DC01 setup.md",
+                "file": "trivida/Planning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DC01 setup"
+              "title": "Planning"
             }
           }
         ]
@@ -187,17 +187,28 @@
   },
   "active": "a5c1516a3454b759",
   "lastOpenFiles": [
-    "OSCP Prepration/notes/Active Directory/Setup/Active Directory + Red Team Lab.md",
-    "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
-    "OSCP Prepration/notes/Active Directory/Setup/DC01 setup.md",
-    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
-    "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
+    "trivida/🩺 Trividha - HealthTech APP.md",
+    "trivida/Planning.md",
+    "trivida/planing",
+    "trivida/aponent anaylsis/practo anaylsis.md",
+    "Untitled 2.md",
+    "trivida/aponent anaylsis",
+    "trivida",
     "Untitled.md",
     "Untitled 1.md",
-    "Untitled 2.md",
+    "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
+    "OSCP Prepration/notes/Active Directory/Setup/DC01 setup.md",
+    "OSCP Prepration/notes/programming/flutter.md",
+    "own vuln vms/win-standalone/lab 1/Untitled.md",
+    "own vuln vms/win-standalone/Lab structure — 5 standalone Windows boxes.md",
+    "own vuln vms/win-standalone/lab 1",
+    "OSCP Prepration/notes/Active Directory/time table.md",
+    "own vuln vms/win-standalone",
+    "OSCP Prepration/notes/Active Directory/Setup/Active Directory + Red Team Lab.md",
+    "OSCP Prepration/notes/Deep Dive In Linux Administration/leaning untold terminal secrets/THE ULTIMATE VIM CHEAT SHEET (Terminal Vim).md",
+    "OSCP Prepration/notes/PrivEsc/Linux PrivEsc I.md",
     "OSCP Prepration/notes/Active Directory/NOTES/Active Directory core.md",
     "OSCP Prepration/notes/Active Directory/NOTES/Kerberos.md",
-    "OSCP Prepration/notes/Active Directory/time table.md",
     "OSCP Prepration/notes/Active Directory/NOTES",
     "ctfs/active directory tryhackme free rooms.md",
     "bug bounty notes/bug bounty/Bug Hunt on nykaa.md",
@@ -218,21 +229,10 @@
     "BurpTUI/BurpTUI_UI_Menu_Design.pdf",
     "BurpTUI/vcpkg-configuration.json",
     "BurpTUI/vcpkg.json",
-    "BurpTUI/CMakeLists.txt",
-    "BurpTUI/burptui_burp_style_layout.html",
-    "BurpTUI/tests/test_storage.cpp",
-    "BurpTUI/tests/test_http_parser.cpp",
-    "BurpTUI/tests/test_event_queue.cpp",
     "BurpTUI/Pasted image.png",
     "myvideos/Script Root Access to My Journey.md",
     "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
-    "OSCP Prepration/notes/programming/Bash/Deep Dive In Loops.md",
-    "OSCP Prepration/notes/programming/cpp/chapter 1.md",
-    "bug bounty notes/bug bounty/IDOR Hunting on Bose.com.md",
     "Untitled.canvas",
-    "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
-    "bug bounty notes/BAC/IDOR/Phase 3.md",
-    "bug bounty notes/BAC/IDOR/Phase 2.md",
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png"
   ]
 }
