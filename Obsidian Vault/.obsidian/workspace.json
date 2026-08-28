@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "trivida/Planning.md",
+                "file": "trivida/🩺 Trividha - HealthTech APP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Planning"
+              "title": "🩺 Trividha - HealthTech APP"
             }
           }
         ]
@@ -187,10 +187,12 @@
   },
   "active": "a5c1516a3454b759",
   "lastOpenFiles": [
-    "trivida/🩺 Trividha - HealthTech APP.md",
     "trivida/Planning.md",
-    "trivida/planing",
+    "trivida/Roadmap/Untitled.md",
     "trivida/aponent anaylsis/practo anaylsis.md",
+    "trivida/🩺 Trividha - HealthTech APP.md",
+    "trivida/Roadmap",
+    "trivida/planing",
     "Untitled 2.md",
     "trivida/aponent anaylsis",
     "trivida",
@@ -228,10 +230,8 @@
     "BurpTUI/LICENSE",
     "BurpTUI/BurpTUI_UI_Menu_Design.pdf",
     "BurpTUI/vcpkg-configuration.json",
-    "BurpTUI/vcpkg.json",
     "BurpTUI/Pasted image.png",
     "myvideos/Script Root Access to My Journey.md",
-    "OSCP Prepration/notes/programming/Bash/Variables & Input.md",
     "Untitled.canvas",
     "own vuln vms/medium-vms/vm-1/medium1_attack_chain.png"
   ]

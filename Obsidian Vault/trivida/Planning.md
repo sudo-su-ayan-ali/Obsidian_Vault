@@ -403,32 +403,28 @@ Before UI, understand the user's behavior.
 
 Research:
 
-```text
 Who is the user?
+	all ages
+
 What are they trying to accomplish?
+	Aims to digitize healthcare by connecting patients, doctors, consultations, medicines, diagnostics, records, and follow-ups in one ecosystem.
+
 What frustrates them?
+	Patients face fragmented healthcare, long waits, unclear doctor choices, inconsistent service quality, expensive consultations, inaccessible records, and difficult follow-ups.
+
 What information do they need?
+	Patients need trustworthy doctor information, symptoms, fees, availability, qualifications, reviews, prescriptions, medical records, test reports, medicine details, and follow-up guidance.
+
 What causes them to abandon?
+	when appointments fail, doctors disappoint, prices surprise, wait times increase, support is poor, or booking becomes complicated.
+
 What device do they use?
+	 android version 6 atleast.
+
 What language do they understand?
-```
+	Hindi, Gujarati, Rajasthani/Marwari, and English
 
-For healthcare in India, you might need to consider:
 
-- Hindi
-    
-- English
-    
-- Regional languages
-    
-- Low-end Android devices
-    
-- Slow networks
-    
-- Elderly users
-    
-- Low digital literacy
-    
 
 These decisions directly influence UX.
 
@@ -438,12 +434,13 @@ These decisions directly influence UX.
 
 Before designing screens, create flows.
 
-Example:
 
 ```text
 Open App
    ↓
-Login
+Select Language
+   ↓
+Login / Registeration
    ↓
 Home
    ↓
@@ -476,9 +473,6 @@ Do this for **every major feature**.
 
 # 11. Information Architecture
 
-Determine how information is organized.
-
-Example:
 
 ```text
 Patient App
@@ -582,7 +576,7 @@ This gives the application consistency.
 
 Now engineers decide **how the product will actually work**.
 
-For example:
+
 
 ```text
                  Mobile App
@@ -609,7 +603,6 @@ For example:
 
 # 15. Choose Architecture
 
-You need to decide:
 
 ### Monolith
 
@@ -654,7 +647,7 @@ For an early-stage startup, **modular monolith is often more sensible than immed
 
 Now select technologies.
 
-For example:
+
 
 ## Mobile
 
@@ -662,24 +655,225 @@ For example:
 Flutter
 ```
 
-or
-
-```text
-React Native
-```
-
-or native:
-
-```text
-Android → Kotlin
-iOS → Swift
-```
-
-If you're targeting Android + iOS with a small team, Flutter can be a reasonable choice.
 
 ---
 
-## Backend
+# Backend 
+
+|Layer|Technology|
+|---|---|
+|Patient app|Flutter|
+|Doctor app|Flutter|
+|Admin panel|React / Next.js|
+|Authentication|Firebase Authentication|
+|Main database|Cloud Firestore|
+|Backend logic|Cloud Functions for Firebase|
+|Medical documents|Cloud Storage for Firebase|
+|Push notifications|Firebase Cloud Messaging|
+|Analytics|Google Analytics for Firebase|
+|Crash monitoring|Firebase Crashlytics|
+|Security|Firebase Security Rules + App Check|
+|Payments|Razorpay/Cashfree + Cloud Functions|
+|Video consultation|WebRTC / Agora / similar|
+|Source control|Git + GitHub/GitLab|
+|CI/CD|GitHub Actions / Firebase App Distribution / Play Console|
+
+### One important recommendation
+
+For your application, **don't put business logic directly in Flutter**.
+
+For example, don't do:
+
+```
+Flutter
+   ↓
+Firestore
+   ↓
+"Create appointment"
+```
+
+Instead:
+
+```
+Flutter
+   ↓
+Cloud Function / controlled backend operation
+   ↓
+Validate patient
+   ↓
+Validate doctor
+   ↓
+Check slot availability
+   ↓
+Create appointment
+   ↓
+Create payment/order
+   ↓
+Send notification
+   ↓
+Firestore
+```
+
+This is particularly important for things such as:
+
+- appointment creation
+- payments
+- doctor verification
+- prescription creation
+- refunds
+- permissions
+- sensitive patient operations
+
+Otherwise, malicious clients can potentially manipulate your APIs/database if your authorization model is weak.
+
+### Firestore structure
+
+I'd avoid one giant `users` document containing everything.
+
+Something closer to:
+
+```
+users/
+    {userId}
+
+patients/
+    {patientId}
+
+doctors/
+    {doctorId}
+
+specialties/
+    {specialtyId}
+
+appointments/
+    {appointmentId}
+
+consultations/
+    {consultationId}
+
+prescriptions/
+    {prescriptionId}
+
+dietPlans/
+    {dietPlanId}
+
+medicalRecords/
+    {recordId}
+
+payments/
+    {paymentId}
+
+notifications/
+    {notificationId}
+```
+
+And relationships such as:
+
+```
+Patient
+   │
+   ├── Appointments
+   │       │
+   │       └── Consultation
+   │               ├── Prescription
+   │               └── Diet Plan
+   │
+   └── Medical Records
+```
+
+### Firebase is especially good for your MVP
+
+You can get a lot without maintaining traditional servers:
+
+```
+No VPS management
+No Nginx initially
+No Kubernetes
+No database server maintenance
+No Redis initially
+No WebSocket server initially
+```
+
+Firebase handles much of the infrastructure.
+
+But there is an important architectural consideration:
+
+**Healthcare data is sensitive.** Before production, you should design your Firestore Security Rules, authentication/authorization model, audit logging, backups, data retention, document access, encryption, and applicable Indian privacy/regulatory requirements very carefully.
+
+So if you're choosing Firebase, I would structure your planning documents as:
+
+```
+01_PRODUCT
+    PRD
+    Personas
+    User Stories
+    MVP
+    Roadmap
+
+02_UX
+    User Flows
+    Information Architecture
+    Wireframes
+    UI Design
+    Design System
+
+03_FIREBASE_ARCHITECTURE
+    Firebase Services
+    Firestore Schema
+    Security Rules
+    Cloud Functions
+    Storage Structure
+    Authentication
+    Notifications
+
+04_API
+    Cloud Functions
+    Payment APIs
+    Video APIs
+    External Integrations
+
+05_SECURITY
+    Threat Model
+    RBAC
+    Data Protection
+    Audit Logging
+    Privacy
+
+06_DEVELOPMENT
+    Sprint Plan
+    Backlog
+    Git Strategy
+    CI/CD
+
+07_TESTING
+    Unit
+    Integration
+    E2E
+    Security
+    Performance
+
+08_DEPLOYMENT
+    Firebase Projects
+    Development
+    Staging
+    Production
+    Monitoring
+
+09_ANALYTICS
+    Events
+    Funnels
+    KPIs
+
+10_ROADMAP
+    V1
+    V1.1
+    V2
+```
+
+**For your specific app, I would recommend starting with Firebase + Flutter + Cloud Functions + Firestore + Storage + FCM**, rather than introducing a separate Node/Java backend immediately. You can still add specialized services later if the product's scale or requirements justify them.
+
+---
+# Backend
 
 Possible:
 
@@ -1199,91 +1393,8 @@ Product Manager
 
 ---
 
-# 30. Roadmap
 
-Don't build everything at once.
-
-Example:
-
-### Phase 0 — Discovery
-
-```text
-Market research
-Competitor analysis
-User research
-Business model
-Product vision
-```
-
-### Phase 1 — Product Design
-
-```text
-PRD
-User stories
-User flows
-Wireframes
-UI/UX
-Prototype
-```
-
-### Phase 2 — Architecture
-
-```text
-System architecture
-Database
-API
-Security architecture
-Cloud architecture
-Tech stack
-```
-
-### Phase 3 — MVP Development
-
-```text
-Patient app
-Doctor app
-Admin panel
-Backend
-Payments
-Notifications
-```
-
-### Phase 4 — Testing
-
-```text
-QA
-Security testing
-Performance testing
-UAT
-```
-
-### Phase 5 — Launch
-
-```text
-Production infrastructure
-Monitoring
-Analytics
-App Store
-Play Store
-Marketing
-```
-
-### Phase 6 — Growth
-
-```text
-Pharmacy
-Labs
-AI features
-Health records
-Subscriptions
-Hospital integration
-Insurance
-etc.
-```
-
----
-
-# 31. The Actual Company Workflow
+# 30. The Actual Company Workflow
 
 A realistic company workflow looks approximately like this:
 
@@ -1351,97 +1462,3 @@ DATABASE/API/SECURITY            │
 
 ---
 
-# The Important Documents You Should Create
-
-If **you are planning your own healthcare app**, I would create this folder structure:
-
-```text
-healthcare-app/
-│
-├── 01-business/
-│   ├── business-model.md
-│   ├── market-research.md
-│   ├── competitor-analysis.md
-│   └── product-vision.md
-│
-├── 02-product/
-│   ├── PRD.md
-│   ├── personas.md
-│   ├── user-stories.md
-│   ├── feature-specification.md
-│   ├── MVP.md
-│   └── roadmap.md
-│
-├── 03-ux/
-│   ├── information-architecture.md
-│   ├── user-flows.md
-│   ├── UX-research.md
-│   └── usability-requirements.md
-│
-├── 04-ui/
-│   ├── design-system.md
-│   ├── typography.md
-│   ├── colors.md
-│   └── components.md
-│
-├── 05-technical/
-│   ├── architecture.md
-│   ├── tech-stack.md
-│   ├── database-design.md
-│   ├── api-specification.md
-│   └── integrations.md
-│
-├── 06-security/
-│   ├── security-requirements.md
-│   ├── threat-model.md
-│   ├── RBAC.md
-│   └── privacy.md
-│
-├── 07-devops/
-│   ├── infrastructure.md
-│   ├── deployment.md
-│   ├── CI-CD.md
-│   └── monitoring.md
-│
-├── 08-testing/
-│   ├── test-plan.md
-│   ├── test-cases.md
-│   ├── security-testing.md
-│   └── performance-testing.md
-│
-└── 09-project-management/
-    ├── milestones.md
-    ├── sprints.md
-    ├── backlog.md
-    └── release-plan.md
-```
-
-## The key distinction
-
-The biggest thing to understand is:
-
-**PRD ≠ UI/UX ≠ Technical Design.**
-
-They answer different questions:
-
-|Document|Main question|
-|---|---|
-|Business Plan|**Why should we build it?**|
-|Market Research|**Who already solves it?**|
-|Product Vision|**What are we trying to achieve?**|
-|PRD|**What exactly should the product do?**|
-|User Stories|**What does each user need?**|
-|User Flow|**How does the user accomplish it?**|
-|UX|**How should the experience work?**|
-|UI|**How should it look?**|
-|Architecture|**How will the system work?**|
-|Tech Stack|**What technologies will we use?**|
-|Database Design|**How will we store the data?**|
-|API Specification|**How will systems communicate?**|
-|Security Plan|**How will we protect the system/data?**|
-|Test Plan|**How do we know it works correctly?**|
-|DevOps Plan|**How do we reliably deploy and operate it?**|
-|Analytics|**How do we know whether it's successful?**|
-|Roadmap|**What do we build now vs later?**|
-
-For the **Practo-like healthcare platform you've been discussing**, I would actually go one step further: create a **complete product blueprint before writing any code**—starting with the business model, all user roles, V1/V2 feature boundaries, detailed PRD, patient/doctor/admin flows, screen inventory, database entities, API inventory, architecture, security/threat model, and recommended tech stack. That blueprint can then become the single source of truth for development.
