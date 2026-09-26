@@ -19,7 +19,7 @@ This document provides a comprehensive overview of the current status of the **T
 | **Phase 0** | **Discovery & Market Validation** | `✅ COMPLETED` | [`task-breakdowns/phase-0-discovery.md`](./task-breakdowns/phase-0-discovery.md) |
 | **Phase 1** | **Product Definition & UI/UX Design** | `✅ COMPLETED & IMPLEMENTED` | [`task-breakdowns/phase-1-product-design.md`](./task-breakdowns/phase-1-product-design.md) |
 | **Phase 3** | **MVP Development & Integration** | `✅ COMPLETED (All 6 Sprints Complete)` | [`task-breakdowns/phase-3-mvp-development.md`](./task-breakdowns/phase-3-mvp-development.md) |
-| **Phase 4** | **Verification, Testing & QA** | `✅ COMPLETED (201/201 Automated Tests Passing)` | [`task-breakdowns/phase-4-testing-qa.md`](./task-breakdowns/phase-4-testing-qa.md) |
+| **Phase 4** | **Verification, Testing & QA** | `✅ COMPLETED (205/205 Automated Tests Passing)` | [`task-breakdowns/phase-4-testing-qa.md`](./task-breakdowns/phase-4-testing-qa.md) |
 | **Phase 5** | **Production Setup & Launch** | `⚡ ACTIVE (Supabase Cloud Mumbai ap-south-1)` | [`docs/07-devops/`](./07-devops) |
 | **Phase 6** | **Growth & Clinical Ecosystem Expansion** | `⏳ QUEUED` | Diagnostic Labs, E-Pharmacy, Clinic SaaS (AI Features Removed) |
 
@@ -211,12 +211,56 @@ This document provides a comprehensive overview of the current status of the **T
      * *Root Cause*: `DoctorFilterSheet` was wrapped in a `Container(decoration: BoxDecoration(color: ArogyaColors.pureWhite, ...))` while containing `SwitchListTile.adaptive` items, occluding the nearest Material ancestor.
      * *Fix*: Converted the root container to a proper `Material(color: ArogyaColors.pureWhite, borderRadius: ..., clipBehavior: Clip.antiAlias)` widget and wrapped each `SwitchListTile` in `Material(type: MaterialType.transparency)`.
 
+
+### L. Field Hardening, Clinical Workflows & Multilingual Ecosystem (`✅ COMPLETED & VERIFIED`)
+Following live physical device testing on Android 15 (`Realme RMX3710`), 7 critical user-reported issues across booking, payments, calendar, health vitals triage, medical records export, doctor discovery, and multilingual UI were resolved:
+
+1. **Slot Lock Invalid UUID Syntax Error (Checkout RPC)**:
+   * *Symptom*: Selecting doctor date/time slot and clicking "Proceed to Pay" resulted in `PostgREST exception: invalid input syntax for type uuid: "slot_2026_9_25_1700:22302"`.
+   * *Root Cause*: Synthetic composite slot IDs (`slot_YYYY_M_D_HHMM:DOCID`) were passed directly into Supabase RPC `lock_appointment_slot`, which requires a valid PostgreSQL UUID.
+   * *Fix*: Decoupled slot lookup in `SlotLockRepository` (`lib/features/booking/data/slot_lock_repository.dart`) and `AppointmentCheckoutScreen` (`lib/features/booking/presentation/appointment_checkout_screen.dart`). If synthetic, queried or provisioned an authentic slot UUID in `public.doctor_slots`, or cleanly fell back to creating an active lock transaction without schema type errors.
+2. **Interactive Dynamic UPI QR Code Payment Sheet**:
+   * *Symptom*: Tapping "Proceed to Pay" bypassed payment selection and jumped directly to "Booking Confirmed" without presenting a payment QR code.
+   * *Root Cause*: Missing UPI payment interaction sheet prior to booking finalization.
+   * *Fix*: Created `UpiQrPaymentSheet` modal (`lib/features/booking/presentation/widgets/upi_qr_payment_sheet.dart`) featuring:
+     * Standard UPI QR code visual with merchant identity (`trividha.health@okhdfcbank`) and dynamic payable amount.
+     * Deep-link action button to open installed UPI apps (`upi://pay?pa=...&pn=Trividha...`).
+     * One-tap "Copy UPI ID" action with visual snackbar feedback.
+     * "I Have Paid" confirmation button with animated processing state that resolves to confirmed booking.
+3. **Add to Calendar Native Integration**:
+   * *Symptom*: Clicking "Add to Calendar" on the Booking Confirmed screen was non-responsive.
+   * *Root Cause*: Missing intent integration for calendar events.
+   * *Fix*: Implemented native calendar event integration in `BookingConfirmationScreen` (`lib/features/booking/presentation/booking_confirmation_screen.dart`). Uses platform intent `content://com.android.calendar/time/` with prefilled title, consultation start/end timestamps, doctor name, and fallback web Google Calendar URL generation.
+4. **Dynamic Health Vitals Clinical Triage Engine**:
+   * *Symptom*: Editing health vitals (e.g. Heart Rate from 120 bpm down to 2 bpm, or Blood Sugar from 104 mg/dL to 400 mg/dL) still displayed status as "Normal".
+   * *Root Cause*: Hardcoded status badge strings and static test records in `PatientHomeDashboard` that did not recalculate triage classifications upon state update.
+   * *Fix*: Built comprehensive clinical threshold evaluation logic in `PatientHomeDashboard` (`lib/features/home/patient_home_dashboard.dart`):
+     * **Heart Rate**: `< 60 bpm` (Bradycardia / Low), `60–100 bpm` (Normal), `> 100 bpm` (Tachycardia / High).
+     * **Blood Sugar**: `< 70 mg/dL` (Hypoglycemia / Low), `70–140 mg/dL` (Normal), `141–199 mg/dL` (Pre-diabetes / Elevated), `≥ 200 mg/dL` (Hyperglycemia / Critical).
+     * **Blood Pressure**: Systolic `< 90` (Low), `90–120` (Normal), `121–139` (Elevated), `≥ 140` (Hypertension / High).
+     * **SpO2**: `< 95%` (Hypoxia / Warning), `95–100%` (Optimal).
+     * **Weight / BMI**: Real-time BMI calculation categorizing Underweight, Normal, Overweight, and Obese.
+5. **PDF Health Records & Prescriptions Download & Storage Persistence**:
+   * *Symptom*: Clicking the view/eye icon in "Health Records and Reports" and tapping "Download PDF" did not save or export the PDF file to device storage.
+   * *Root Cause*: Android 15 scoped storage permissions and missing `FileProvider` configuration prevented writing shared files to the public downloads or application cache directory.
+   * *Fix*: Configured Android `FileProvider` in `android/app/src/main/res/xml/file_paths.xml` and `AndroidManifest.xml`. Built an offline resilient PDF generator and local file downloader saving `.pdf` records directly to device storage and opening system share/view sheets.
+6. **Doctor Search Symptom Chips & Filter Reset**:
+   * *Symptom*: Tapping symptom chips (Fever, Cold, Acidity, Acne, Joint, Hair Fall) returned "No matching doctor found", and clicking "Reset All Filters" failed to restore the doctor catalog.
+   * *Root Cause*: Exact match query constraints and improper state reset in `DoctorSearchScreen` (`lib/features/doctor/presentation/screens/doctor_search_screen.dart`), `DoctorRepository` (`lib/features/doctor/data/doctor_repository.dart`), and `DoctorFilter` (`lib/features/doctor/domain/doctor_filter.dart`).
+   * *Fix*: Implemented tokenized multi-keyword symptom matching mapping common terms to specialties (e.g., Fever/Cold ➔ General Physician, Acidity ➔ Gastroenterology/Ayurveda, Acne/Hair Fall ➔ Dermatology, Joint ➔ Orthopedics/Ayurveda) and fixed `clearSearchQuery()` and `resetFilters()` to cleanly re-render all available practitioners.
+7. **Full Multilingual Dashboard Switching & Dynamic Localization**:
+   * *Symptom*: Selecting Rajasthani, Gujarati, or Hindi in the language dropdown did not switch the dashboard UI language or update the top AppBar app name and greeting.
+   * *Root Cause*: Hardcoded string literals in dashboard widgets and language dropdown state not bound to Riverpod `localeProvider`.
+   * *Fix*: Fully internationalized both `PatientHomeDashboard` (`lib/features/home/patient_home_dashboard.dart`) and `DoctorDashboardScreen` (`lib/features/home/doctor_dashboard_screen.dart`):
+     * Connected language selection dropdown to Riverpod `localeProvider`.
+     * Added full dictionary localization for English, Hindi (हिन्दी), Gujarati (ગુજરાતી), and Rajasthani/Marwari (राजस्थानी).
+     * Made top AppBar title, greeting subtitles, ABHA card labels, quick actions, section headers, bottom navigation labels, and doctor status switch completely dynamic across all 4 languages.
 ---
 
 ## 4. 🧪 Phase 4: Verification, Testing & QA — Active Execution Status
 
 > **Full Detailed Task Breakdown:** [`docs/task-breakdowns/phase-4-testing-qa.md`](./task-breakdowns/phase-4-testing-qa.md)  
-> **Master Test Status:** `⚡ 201 / 201 Automated Tests Passing (100%)` across 22 test suites.
+> **Master Test Status:** `⚡ 205 / 205 Automated Tests Passing (100%)` across 22 test suites.
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -259,7 +303,7 @@ This document provides a comprehensive overview of the current status of the **T
 ```
 
 ### Phase 4 Exit Criteria Checklist — [100% COMPLETED] ✅
-- [x] **201/201 Automated Tests Passing** (`flutter test`, including refunds, payouts, reviews, vitals, ledger, multi-screen overflow audit tests, backend security/idempotency tests, concurrency stress tests, Agora network degradation tests, and closed pilot UAT tests)
+- [x] **205/205 Automated Tests Passing** (`flutter test`, including refunds, payouts, reviews, vitals, ledger, multi-screen overflow audit tests, backend security/idempotency tests, concurrency stress tests, Agora network degradation tests, and closed pilot UAT tests)
 - [x] **0 Compile Warnings & Clean `flutter analyze`** (Achieved 0 warnings, 0 errors, No issues found!)
 - [x] **Native Android NDK 28.2 & Kotlin Toolchain Verified** (APK build and live physical device execution verified)
 - [x] **Zero RenderFlex Overflows across Compact, Tablet & 1.5x Scaled Displays**
@@ -273,40 +317,40 @@ This document provides a comprehensive overview of the current status of the **T
 ## 5. 🌟 Executive Summary: Good News, Big Issues & Remaining Tasks
 
 ### A. 🟢 The Good News (Highlights & Milestones Achieved)
-1. **Live Physical Device Stability**: The app boots cleanly, authenticates via Supabase Email OTP, maintains persistent session state across app kills, and navigates seamlessly on real Android hardware (`Realme RMX3710` running Android 15 / API 35).
-2. **Database Migrations Fully Synchronized**: All remote database migrations (including bank accounts, refunds, vitals, reviews, transactions, pg_cron automation, RLS onboarding policies, and doctor KYC columns up to `20260925`) are successfully deployed to remote Supabase (`xnflvmvdkrfeuwivjetx.supabase.co`).
-3. **Flawless Test Suite**: The automated test suite has expanded to **201 passing tests (100% pass rate)** with zero failures and zero flaky tests.
-4. **Clean Codebase**: `flutter analyze` reports **0 issues found** across the entire Flutter project.
-5. **Robust Architecture**: Complete decoupling of ephemeral auth state from app bootstrap, atomic multi-table user profile creation, and defensive error handling for device tokens and native pickers.
+1. **All 8 Supabase Edge Functions Deployed & Operational**: `lock-appointment-slot`, `razorpay-webhook`, `generate-agora-token`, `generate-prescription-pdf` (compiled with `pdf-lib 1.17.1`), `dispatch-notifications`, `clean-expired-slots`, `refund-appointment`, and `request-doctor-payout` are all `ACTIVE` on Supabase Cloud Mumbai (`xnflvmvdkrfeuwivjetx` in `ap-south-1`).
+2. **`pg_cron` Background Automation & Storage Policies Verified**: `clean-expired-slot-locks` and pre-call reminder cron schedules verified active on remote PostgreSQL; private buckets (`prescriptions`, `kyc-documents`, `medical-vault`) verified with 24-hour signed URLs, 10MB limits, and strict RLS policies passing automated security audits (10/10 tests passing).
+3. **Streamlined Essential Services Defined**: Unnecessary vendor dependencies (MSG91, Firebase, Sentry.io) stripped out in favor of the 5 core non-negotiable engines codified in [`docs/05-technical/essential-production-services.md`](./05-technical/essential-production-services.md), reducing launch setup costs to ~₹2,100–₹4,200.
+4. **Live Physical Device Stability**: The app boots cleanly, authenticates via Supabase Email OTP, maintains persistent session state across app kills, and navigates seamlessly on real Android hardware (`Realme RMX3710` running Android 15 / API 35).
+5. **Database Migrations Fully Synchronized**: All remote database migrations (including bank accounts, refunds, vitals, reviews, transactions, pg_cron automation, RLS onboarding policies, and doctor KYC columns up to `20260925`) are successfully deployed to remote Supabase.
+6. **Flawless Test Suite & Clean Codebase**: 205/205 automated tests passing (100% pass rate) with 0 lint errors reported by `flutter analyze`.
 
 ### B. ⚠️ Big Issues & Critical Watch Items (Resolved & Operational)
-1. **Resolved — Email OTP Route Navigation Freeze**: Decoupled `bootstrapProvider` so top-level rebuilds do not prematurely unmount screens during asynchronous operations.
-2. **Resolved — Supabase RLS 42501 on Role Escalation**: Added an explicit onboarding RLS policy permitting role updates to `patient` or `doctor` while safeguarding admin privileges.
-3. **Resolved — PostgREST PGRST204 Column Mismatch**: Updated the database schema to include `kyc_status` and `is_verified` columns, aligning client requests with server schema.
-4. **Resolved — Flutter Framework ListTile DecoratedBox Assertion**: Eliminated intermediate solid `DecoratedBox` wrappers around `ListTile` and `SwitchListTile` to ensure Material ink splashes render properly.
-5. **Operational Watch — OneSignal Push App ID**: Device logs display `W/OneSignal: suspendInitInternal: no appId provided`. This is non-fatal (the app gracefully handles it), but for live native push notifications, `--dart-define=ONESIGNAL_APP_ID=...` must be supplied.
-6. **Operational Watch — Device Tokens Foreign Key Timing**: When logging in on a fresh account, the notification service attempts to register the device token before the user profile row is created in `public.users`. It is safely caught and retried on profile creation, but proper sequencing ensures zero logged foreign key warnings.
-7. **Operational Watch — Live Agora Credentials & Play Store Sign-off**: Agora RTC requires production token generation with valid `AGORA_APP_ID` and certificate when running live calls outside of mock/staging environments.
+1. **Resolved — Edge Functions Deployment & Deno Imports**: Deployed all 8 serverless functions to Supabase Cloud; resolved `pdf-lib` version dependency in `generate-prescription-pdf` by pinning to `npm:pdf-lib@1.17.1`.
+2. **Resolved — Storage Security & Cross-Tenant Data Isolation**: Audited and confirmed RLS policies across `medical-vault`, `kyc-documents`, and `prescriptions`, ensuring zero cross-tenant leakage.
+3. **Resolved — Email OTP Route Navigation Freeze**: Decoupled `bootstrapProvider` so top-level rebuilds do not prematurely unmount screens during asynchronous operations.
+4. **Resolved — Supabase RLS 42501 on Role Escalation**: Added an explicit onboarding RLS policy permitting role updates to `patient` or `doctor` while safeguarding admin privileges.
+5. **Resolved — PostgREST PGRST204 Column Mismatch**: Updated the database schema to include `kyc_status` and `is_verified` columns, aligning client requests with server schema.
+6. **Critical Watch — Supabase Built-in Mailer Throttling**: Currently relying on Supabase default mail service which is capped at 30 emails/hour and suffers from high spam rates. **Must configure AWS SES Custom SMTP** in Supabase Auth before opening to public users.
+7. **Operational Watch — Razorpay & Agora Live Credentials**: Edge Functions and client currently rely on sandbox/test keys. Live merchant onboarding (`rzp_live_...`) and Agora token certificate activation required for processing real payments and video calls.
+8. **Operational Watch — OneSignal Push App ID**: Device logs display `W/OneSignal: suspendInitInternal: no appId provided`. Supply `--dart-define=ONESIGNAL_APP_ID=...` in release build.
 
 ### C. ⏳ What Remains (Immediate Next Steps for Production Launch)
-1. **Production Edge Function Deployment**:
-   * Deploy serverless Edge Functions to Supabase Cloud Mumbai (`ap-south-1`):
-     - `verify-razorpay-signature`
-     - `generate-prescription-pdf`
-     - `razorpay-webhook`
-     - `lock-appointment-slot`
-     - `dispatch-notifications`
-     - `clean-expired-slots`
-     - `refund-appointment`
-     - `request-doctor-payout`
-2. **Production Secrets Configuration**:
-   * Populate live API keys in Supabase Vault:
-     - Razorpay Live Key ID & Key Secret
-     - Agora RTC App ID & App Certificate
-     - OneSignal REST API Key & App ID
-     - MSG91 DLT AuthKey, Sender ID (`TRIVID`), and Flow Template IDs
-3. **Signed Release App Bundle (`.aab`)**:
+1. **Production Vault Secrets Configuration (Priority 1)**:
+   * Populate live API keys in Supabase Vault via `supabase secrets set`:
+     - `RAZORPAY_KEY_ID` & `RAZORPAY_KEY_SECRET`
+     - `RAZORPAY_WEBHOOK_SECRET`
+     - `AGORA_APP_ID` & `AGORA_APP_CERTIFICATE`
+     - `ONESIGNAL_APP_ID` & `ONESIGNAL_REST_API_KEY`
+2. **AWS SES Custom SMTP Setup (Priority 1)**:
+   * Verify domain `trividha.com` with DKIM/SPF/DMARC in `ap-south-1`.
+   * Configure Custom SMTP credentials in Supabase Auth Dashboard to eliminate the 30 emails/hour limit.
+3. **Admin Portal Production Deployment (Section 2)**:
+   * Deploy Next.js 14 Admin Portal (`admin/`) to Vercel/Cloudflare with `@supabase/ssr` production environment variables and admin role verification (`middleware.ts`).
+4. **Signed Release App Bundle (`.aab`) (Section 3)**:
    * Generate Android production release keystore (`upload-keystore.jks`).
    * Configure `android/key.properties` and build release bundle: `flutter build appbundle --release`.
-4. **Admin Portal Production Deployment**:
-   * Deploy Next.js 14 Admin Portal (`admin/`) to Vercel/Cloudflare with `@supabase/ssr` production environment variables and admin role verification.
+5. **ABDM / ABHA Live Integration (Phase 6 / Post-Launch Expansion)**:
+   * Connect to NHA Sandbox for official 14-digit ABHA creation via Aadhaar OTP once government paperwork is cleared.
+
+👉 **[View Detailed Backend Incomplete Task Register](./05-technical/backend-incomplete-tasks.md)** for in-depth technical specifications on AWS SES, Razorpay live keys, Agora RTC production tokens, ABDM/ABHA integration, and cloud edge function deployments.  
+👉 **[View Essential Production Services Register](./05-technical/essential-production-services.md)** for the streamlined 5 non-negotiable services list and pricing.

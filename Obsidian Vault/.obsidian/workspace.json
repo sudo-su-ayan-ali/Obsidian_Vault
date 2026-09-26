@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP Prepration/notes/PrivEsc/Windows Privilege Escalation.md",
+                "file": "trivida/Problems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Windows Privilege Escalation"
+              "title": "Problems"
+            }
+          },
+          {
+            "id": "f261dd3e69580b45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/1. User Enumeration.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1. User Enumeration"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -186,9 +201,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "e4d4f33aaba50725",
+  "active": "f261dd3e69580b45",
   "lastOpenFiles": [
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/Windows Privilege Escalation cheatsheet.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/1. User Enumeration.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/Windows Privilege Escalation Topic.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/4. PowerShell.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/3. Local Exploits.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/2. Permissions & Privileges.md",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination",
+    "OSCP Prepration/notes/PrivEsc",
+    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc",
     "trivida/Daliy Update Report.md",
+    "trivida/Problems.md",
+    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/📊 Remaining Implementation Tasks & Production Launch Checklist.md",
     "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/part 4.md",
     "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/⚡ Missing & Incomplete Supabase Edge Functions.md",
     "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/Part 3.md",
@@ -204,8 +230,6 @@
     "02-product",
     "trivida/Roadmap/implementation things/auth migration.md",
     "trivida/Roadmap/implementation things",
-    "OSCP Prepration/notes/PrivEsc/Windows Privilege Escalation.md",
-    "trivida/Problems.md",
     "OSCP Prepration/notes/PrivEsc/Untitled 1.md",
     "Untitled 2.md",
     "trivida/Phases/phase 1.md",
@@ -213,17 +237,8 @@
     "Untitled 1.md",
     "trivida/Phases",
     "Untitled.md",
-    "trivida/aponent anaylsis/practo anaylsis.md",
     "trivida/Roadmap",
     "trivida/planing",
-    "trivida/aponent anaylsis",
-    "trivida",
-    "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
-    "OSCP Prepration/notes/Active Directory/Setup/DC01 setup.md",
-    "OSCP Prepration/notes/programming/flutter.md",
-    "own vuln vms/win-standalone/lab 1/Untitled.md",
-    "own vuln vms/win-standalone/Lab structure — 5 standalone Windows boxes.md",
-    "own vuln vms/win-standalone/lab 1",
     "Screenshot_20260804_192723.png",
     "Screenshot_20260804_192341.png",
     "Screenshot_20260804_144441.png",
