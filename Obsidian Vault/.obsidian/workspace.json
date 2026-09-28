@@ -104,12 +104,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 543.08984375,
-    "collapsed": true
+    "width": 543.08984375
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -214,7 +214,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "e4d4f33aaba50725",
+  "active": "e88e8c9a55048124",
   "lastOpenFiles": [
     "Pasted image 20260928130354.png",
     "Pasted image 20260928124619.png",
