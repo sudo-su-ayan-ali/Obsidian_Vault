@@ -4,49 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "044979b06e4f282d",
+        "id": "c39b5df8a434e1ac",
         "type": "tabs",
         "children": [
           {
-            "id": "e4d4f33aaba50725",
+            "id": "ff5c1e9bd02c1cb8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/📊 Remaining Implementation Tasks & Production Launch Checklist.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "📊 Remaining Implementation Tasks & Production Launch Checklist"
-            }
-          },
-          {
-            "id": "f5377df8cbceed6e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/1. User Enumeration.md",
+                "file": "own vuln vms/win-standalone/lab 1/Untitled.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1. User Enumeration"
-            }
-          },
-          {
-            "id": "455caa873427aff1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP Prepration/notes/Networking/Networking — Complete Cybersecurity Learning Topics.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Networking — Complete Cybersecurity Learning Topics"
+              "title": "Untitled"
             }
           }
         ]
@@ -104,8 +76,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -195,6 +166,18 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "a81079185b022410",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "OSCP Prepration/notes/Networking/5. MAC Addressing.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
           }
         ]
       }
@@ -205,63 +188,68 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "zk-prefixer:Create new unique note": false,
+      "random-note:Open random note": false,
+      "workspaces:Manage workspace layouts": false,
+      "publish:Publish changes...": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "e88e8c9a55048124",
+  "active": "ff5c1e9bd02c1cb8",
   "lastOpenFiles": [
+    "semesters/3rd sem/OS theory.md",
+    "semesters/3rd sem/intro to cyber security.md",
+    "2026-10-06.md",
+    "Untitled.md",
+    "Pasted image 20261010150243.png",
+    "Pasted image 20261010105907.png",
+    "Pasted image 20261010105302.png",
+    "Pasted image 20261010105105.png",
+    "semesters/3rd sem",
+    "Untitled 1.md",
+    "semesters",
+    "Untitled.base",
+    "OSCP Prepration/notes/Networking/7. Subnetting.md",
+    "OSCP Prepration/notes/Networking/Networking — Complete Cybersecurity Learning Topics.md",
+    "OSCP Prepration/notes/Networking/6. IPv4.md",
+    "OSCP Prepration/notes/Networking/5. MAC Addressing.md",
+    "202610060819.md",
+    "OSCP Prepration/notes/programming/flutter.md",
+    "plans/workout plan of my Qalbi 🥰.md",
+    "trivida/🩺 Trividha - HealthTech APP.md",
+    "trivida/Roadmap/Roadmap.md",
+    "OSCP Prepration/notes/PrivEsc/linux PrivEsc/Linux PrivEsc I.md",
+    "OSCP Prepration/notes/Reverse Engineering/string & ghidra just basics.md",
+    "OSCP Prepration/notes/Cryptography/Cryptography_basics_topic_with_examples.md",
+    "bug bounty notes/BAC/Broken Access Control reports case study/IDOR allow access to payments data of any user.md",
+    "OSCP Prepration/notes/Deep Dive In Linux Administration/File Ownership In Depth.md",
+    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/⚡ Missing & Incomplete Supabase Edge Functions.md",
+    "OSCP Prepration/notes/programming/Bash/Arrays & associative arrays.md",
+    "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
+    "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
+    "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
+    "OSCP Prepration/notes/programming/Bash/AWK.md",
+    "bug bounty notes/BAC/Broken Access Control reports case study/vertical privilage escalation and indirect object refreance case on hub.vroid.com.md",
+    "Untitled.canvas",
+    "Recording 20261006081822.m4a",
+    "Recording 20261006081818.m4a",
     "Pasted image 20260928130354.png",
     "Pasted image 20260928124619.png",
-    "OSCP Prepration/notes/Networking/Networking — Complete Cybersecurity Learning Topics.md",
-    "OSCP Prepration/notes/Networking/5. MAC Addressing.md",
-    "OSCP Prepration/notes/Networking/1. Networking Fundamentals.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/1. User Enumeration.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/📊 Remaining Implementation Tasks & Production Launch Checklist.md",
-    "trivida/Daliy Update Report.md",
-    "myvideos/Script Root Access to My Journey.md",
-    "OSCP Prepration/notes/Networking/4. Ethernet.md",
-    "OSCP Prepration/notes/Networking/3. TCP & IP Model.md",
-    "OSCP Prepration/notes/Networking/2. OSI Model.md",
-    "OSCP Prepration/notes/Networking/OSI MODEL (Open Systems Interconnection).md",
-    "OSCP Prepration/notes/Networking/IP and TCP as a Playground.md",
-    "OSCP Prepration/notes/Networking/PORTS in Networking.md",
-    "OSCP Prepration/notes/Networking/Port Numbers Explained in Detail.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/Windows Privilege Escalation cheatsheet.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/Windows Privilege Escalation Topic.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/4. PowerShell.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/3. Local Exploits.md",
-    "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination/2. Permissions & Privileges.md",
     "OSCP Prepration/notes/PrivEsc/Windows PrivEsc/indetail explaination",
     "OSCP Prepration/notes/PrivEsc",
     "OSCP Prepration/notes/PrivEsc/Windows PrivEsc",
-    "trivida/Problems.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/part 4.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/⚡ Missing & Incomplete Supabase Edge Functions.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/Part 3.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/part 2.md",
-    "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions/part 1.md",
     "trivida/Roadmap/implementation things/Missing and incomplete supabase edge fucntions",
     "03-ux",
-    "02-product",
-    "trivida/Roadmap/implementation things",
-    "trivida/Phases",
-    "trivida/Roadmap",
-    "trivida/planing",
     "Screenshot_20260804_192723.png",
     "Screenshot_20260804_192341.png",
     "Screenshot_20260804_144441.png",
-    "Screenshot_20260804_144434.png",
-    "Screenshot_20260804_144415.png",
-    "Screenshot_20260804_144358.png",
-    "Screenshot_20260804_144226.png",
-    "Screenshot_20260804_144132.png",
-    "BurpTUI/Pasted image.png",
-    "Untitled.canvas"
+    "Screenshot_20260804_144434.png"
   ]
 }

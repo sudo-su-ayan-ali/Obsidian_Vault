@@ -255,6 +255,44 @@ Following live physical device testing on Android 15 (`Realme RMX3710`), 7 criti
      * Connected language selection dropdown to Riverpod `localeProvider`.
      * Added full dictionary localization for English, Hindi (हिन्दी), Gujarati (ગુજરાતી), and Rajasthani/Marwari (राजस्थानी).
      * Made top AppBar title, greeting subtitles, ABHA card labels, quick actions, section headers, bottom navigation labels, and doctor status switch completely dynamic across all 4 languages.
+
+### M. Supabase Pro Enterprise Migration & Agora Live Video Credentials (`✅ COMPLETED & VERIFIED`)
+To support commercial scale, prevent database sleep, and eliminate test credentials, the entire backend was successfully migrated to a dedicated **Supabase Pro** instance and linked with production **Agora RTC Video** credentials:
+
+1. **New Supabase Pro Project Provisioning & Linking**:
+   * Provisioned and linked project ref: `negpiwmeohibwvqugnqs` (`https://negpiwmeohibwvqugnqs.supabase.co`).
+   * Authenticated Supabase CLI via dedicated personal access token (`sbp_...`).
+   * Applied all 17 atomic PostgreSQL migrations via `supabase db push`:
+     - Users, Patients, Doctors with onboarding RLS policy (`20260924`)
+     - Doctor KYC documents and schema alignment (`kyc_status`, `is_verified` via `20260925`)
+     - Doctor slots, atomic concurrency locking RPC (`lock_appointment_slot`)
+     - Appointments, refunds, double-entry financial transactions ledger, and payouts
+     - Patient vitals triage and doctor reviews schema
+     - `pg_cron` automated background workers (`clean-expired-slot-locks`, `enqueue-15m-reminders`, `dispatch-pending-notifications`)
+2. **Private Storage Buckets Provisioned**:
+   * Verified creation of storage buckets on `negpiwmeohibwvqugnqs`:
+     - `prescriptions/` (Private, signed URLs)
+     - `kyc-documents/` (Restricted to Doctor `auth.uid()` and Admin)
+     - `medical-vault/` (Patient medical reports, 10MB ceiling)
+     - `doctor-credentials/`
+3. **Production Agora RTC Video Engine Credentials**:
+   * Injected live Agora production credentials directly into Supabase Cloud Secrets Vault:
+     - `AGORA_APP_ID`: `6366e853bb1f426987f03f8221a25f38`
+     - `AGORA_APP_CERTIFICATE`: `626c29fe1baa478baf82b25608942468`
+4. **All 8 Supabase Edge Functions Deployed & ACTIVE on Cloud**:
+   * Successfully bundled and deployed all 8 serverless functions to `negpiwmeohibwvqugnqs`:
+     - `generate-agora-token`: `ACTIVE` (Uses live Agora credentials)
+     - `lock-appointment-slot`: `ACTIVE` (PostgreSQL RPC concurrency lock)
+     - `razorpay-webhook`: `ACTIVE` (Order payments & refunds)
+     - `generate-prescription-pdf`: `ACTIVE` (Tri-Fold PDF compiler with `pdf-lib 1.17.1`)
+     - `dispatch-notifications`: `ACTIVE` (Push and alert processor)
+     - `clean-expired-slots`: `ACTIVE` (Abandoned slot lock cleaner)
+     - `refund-appointment`: `ACTIVE` (Patient cancellation refund engine)
+     - `request-doctor-payout`: `ACTIVE` (Doctor escrow balance settlements)
+5. **Cross-Platform Client & Admin Synchronization**:
+   * **Flutter App (`lib/core/config/supabase_config.dart`)**: Updated with default production endpoint `https://negpiwmeohibwvqugnqs.supabase.co` and publishable key `sb_publishable_6e47zIH-R0tGxVXpYpiqAw_9QlWHj-C`. Verified with clean `flutter analyze` (**0 issues**).
+   * **Next.js Admin Portal (`admin/.env.local` & `admin/app/(dashboard)/settings/page.tsx`)**: Synchronized new Supabase Pro URL and Secret Key (`sb_secret_zgAy5yX5...`). Verified with production build (`npm run build` passing **17/17 pages**).
+
 ---
 
 ## 4. 🧪 Phase 4: Verification, Testing & QA — Active Execution Status
@@ -316,41 +354,44 @@ Following live physical device testing on Android 15 (`Realme RMX3710`), 7 criti
 
 ## 5. 🌟 Executive Summary: Good News, Big Issues & Remaining Tasks
 
-### A. 🟢 The Good News (Highlights & Milestones Achieved)
-1. **All 8 Supabase Edge Functions Deployed & Operational**: `lock-appointment-slot`, `razorpay-webhook`, `generate-agora-token`, `generate-prescription-pdf` (compiled with `pdf-lib 1.17.1`), `dispatch-notifications`, `clean-expired-slots`, `refund-appointment`, and `request-doctor-payout` are all `ACTIVE` on Supabase Cloud Mumbai (`xnflvmvdkrfeuwivjetx` in `ap-south-1`).
-2. **`pg_cron` Background Automation & Storage Policies Verified**: `clean-expired-slot-locks` and pre-call reminder cron schedules verified active on remote PostgreSQL; private buckets (`prescriptions`, `kyc-documents`, `medical-vault`) verified with 24-hour signed URLs, 10MB limits, and strict RLS policies passing automated security audits (10/10 tests passing).
-3. **Streamlined Essential Services Defined**: Unnecessary vendor dependencies (MSG91, Firebase, Sentry.io) stripped out in favor of the 5 core non-negotiable engines codified in [`docs/05-technical/essential-production-services.md`](./05-technical/essential-production-services.md), reducing launch setup costs to ~₹2,100–₹4,200.
-4. **Live Physical Device Stability**: The app boots cleanly, authenticates via Supabase Email OTP, maintains persistent session state across app kills, and navigates seamlessly on real Android hardware (`Realme RMX3710` running Android 15 / API 35).
-5. **Database Migrations Fully Synchronized**: All remote database migrations (including bank accounts, refunds, vitals, reviews, transactions, pg_cron automation, RLS onboarding policies, and doctor KYC columns up to `20260925`) are successfully deployed to remote Supabase.
-6. **Flawless Test Suite & Clean Codebase**: 205/205 automated tests passing (100% pass rate) with 0 lint errors reported by `flutter analyze`.
+#### A. 🟢 The Good News (Highlights & Milestones Achieved)
+1. **All 8 Supabase Edge Functions Deployed & Operational on Pro Project**: `lock-appointment-slot`, `razorpay-webhook`, `generate-agora-token`, `generate-prescription-pdf` (compiled with `pdf-lib 1.17.1`), `dispatch-notifications`, `clean-expired-slots`, `refund-appointment`, and `request-doctor-payout` are all `ACTIVE` on Supabase Pro Cloud (`negpiwmeohibwvqugnqs`).
+2. **OneSignal Native Push Notifications Configured & Tested**: Production `ONESIGNAL_APP_ID` (`1152d851-0ef0-45b3-8b8b-602a50d76376`) and `ONESIGNAL_REST_API_KEY` injected into Supabase Cloud Secrets Vault. Firebase Cloud Messaging (FCM) service account connected. Real-time notifications and call-ringing alerts functional across doctor/patient flows.
+3. **Agora RTC Live Credentials Active**: Production `AGORA_APP_ID` (`6366e853...`) and `AGORA_APP_CERTIFICATE` (`626c29fe...`) injected into Supabase Cloud Secrets Vault. Video calls generate and use real production encrypted RTC tokens.
+4. **`pg_cron` Background Automation & Storage Policies Verified**: `clean-expired-slot-locks` and pre-call reminder cron schedules verified active on remote PostgreSQL; private buckets (`prescriptions`, `kyc-documents`, `medical-vault`, `doctor-credentials`) verified with 24-hour signed URLs, 10MB limits, and strict RLS policies passing automated security audits.
+5. **Live Physical Device Stability**: The app boots cleanly, authenticates via Supabase Email OTP, maintains persistent session state across app kills, and navigates seamlessly on real Android hardware (`Realme RMX3710` running Android 15 / API 35).
+6. **Database Migrations Fully Synchronized on Pro**: All 17 remote database migrations (including bank accounts, refunds, vitals, reviews, transactions, pg_cron automation, RLS onboarding policies, and doctor KYC columns up to `20260925`) are successfully deployed to remote Supabase Pro.
+7. **Flawless Test Suite & Clean Codebase**: 205/205 automated tests passing (100% pass rate) with 0 lint errors reported by `flutter analyze`.
 
 ### B. ⚠️ Big Issues & Critical Watch Items (Resolved & Operational)
-1. **Resolved — Edge Functions Deployment & Deno Imports**: Deployed all 8 serverless functions to Supabase Cloud; resolved `pdf-lib` version dependency in `generate-prescription-pdf` by pinning to `npm:pdf-lib@1.17.1`.
-2. **Resolved — Storage Security & Cross-Tenant Data Isolation**: Audited and confirmed RLS policies across `medical-vault`, `kyc-documents`, and `prescriptions`, ensuring zero cross-tenant leakage.
-3. **Resolved — Email OTP Route Navigation Freeze**: Decoupled `bootstrapProvider` so top-level rebuilds do not prematurely unmount screens during asynchronous operations.
-4. **Resolved — Supabase RLS 42501 on Role Escalation**: Added an explicit onboarding RLS policy permitting role updates to `patient` or `doctor` while safeguarding admin privileges.
-5. **Resolved — PostgREST PGRST204 Column Mismatch**: Updated the database schema to include `kyc_status` and `is_verified` columns, aligning client requests with server schema.
-6. **Critical Watch — Supabase Built-in Mailer Throttling**: Currently relying on Supabase default mail service which is capped at 30 emails/hour and suffers from high spam rates. **Must configure AWS SES Custom SMTP** in Supabase Auth before opening to public users.
-7. **Operational Watch — Razorpay & Agora Live Credentials**: Edge Functions and client currently rely on sandbox/test keys. Live merchant onboarding (`rzp_live_...`) and Agora token certificate activation required for processing real payments and video calls.
-8. **Operational Watch — OneSignal Push App ID**: Device logs display `W/OneSignal: suspendInitInternal: no appId provided`. Supply `--dart-define=ONESIGNAL_APP_ID=...` in release build.
+1. **Resolved — OneSignal Missing App ID & Backend Dispatch**: Configured Google Cloud FCM Service Account JSON in OneSignal, injected live App ID & REST API key into Supabase Cloud Vault, and updated client service with zero headless test regressions.
+2. **Resolved — Supabase Pro Enterprise Migration**: Successfully migrated from free sandbox project to dedicated Pro tier project (`negpiwmeohibwvqugnqs`), eliminating project sleeping risks.
+3. **Resolved — Agora Production Token Generation**: Replaced mock Agora credentials with live App ID & Certificate in Supabase Secrets Vault.
+4. **Resolved — Edge Functions Deployment & Deno Imports**: Deployed all 8 serverless functions to Supabase Cloud; resolved `pdf-lib` version dependency in `generate-prescription-pdf` by pinning to `npm:pdf-lib@1.17.1`.
+5. **Resolved — Storage Security & Cross-Tenant Data Isolation**: Audited and confirmed RLS policies across `medical-vault`, `kyc-documents`, and `prescriptions`, ensuring zero cross-tenant leakage.
+6. **Resolved — Email OTP Route Navigation Freeze**: Decoupled `bootstrapProvider` so top-level rebuilds do not prematurely unmount screens during asynchronous operations.
+7. **Resolved — Supabase RLS 42501 on Role Escalation**: Added an explicit onboarding RLS policy permitting role updates to `patient` or `doctor` while safeguarding admin privileges.
+8. **Resolved — PostgREST PGRST204 Column Mismatch**: Updated the database schema to include `kyc_status` and `is_verified` columns, aligning client requests with server schema.
+9. **Critical Watch — Supabase Built-in Mailer Throttling**: Currently relying on Supabase default mail service which is capped at 30 emails/hour and suffers from high spam rates. **Must configure AWS SES Custom SMTP** in Supabase Auth before opening to public users.
+10. **Operational Watch — Razorpay Live Gateway**: Razorpay live merchant keys (`rzp_live_...`) required for processing real payments and auto-refunds.
 
 ### C. ⏳ What Remains (Immediate Next Steps for Production Launch)
-1. **Production Vault Secrets Configuration (Priority 1)**:
-   * Populate live API keys in Supabase Vault via `supabase secrets set`:
-     - `RAZORPAY_KEY_ID` & `RAZORPAY_KEY_SECRET`
-     - `RAZORPAY_WEBHOOK_SECRET`
-     - `AGORA_APP_ID` & `AGORA_APP_CERTIFICATE`
-     - `ONESIGNAL_APP_ID` & `ONESIGNAL_REST_API_KEY`
-2. **AWS SES Custom SMTP Setup (Priority 1)**:
-   * Verify domain `trividha.com` with DKIM/SPF/DMARC in `ap-south-1`.
-   * Configure Custom SMTP credentials in Supabase Auth Dashboard to eliminate the 30 emails/hour limit.
-3. **Admin Portal Production Deployment (Section 2)**:
-   * Deploy Next.js 14 Admin Portal (`admin/`) to Vercel/Cloudflare with `@supabase/ssr` production environment variables and admin role verification (`middleware.ts`).
-4. **Signed Release App Bundle (`.aab`) (Section 3)**:
+1. **AWS SES Custom SMTP Setup (Priority 1 — Critical for Auth)**:
+   * Verify domain `trividha.com` with DKIM/SPF/DMARC in AWS SES (`ap-south-1` Mumbai).
+   * Configure Custom SMTP credentials in Supabase Auth Dashboard to eliminate the 30 emails/hour limit and guarantee OTP deliverability.
+2. **Razorpay Live Gateway & Webhook (Priority 1 — Critical for Revenue)**:
+   * Complete business KYC on Razorpay Dashboard to activate Live Mode.
+   * Generate `RAZORPAY_KEY_ID` (`rzp_live_...`), `RAZORPAY_KEY_SECRET`, and `RAZORPAY_WEBHOOK_SECRET`.
+   * Store in Supabase Vault and register live webhook URL: `https://negpiwmeohibwvqugnqs.supabase.co/functions/v1/razorpay-webhook`.
+3. **Signed Release App Bundle (`.aab`) & Google Play Console (Priority 2 — Release)**:
    * Generate Android production release keystore (`upload-keystore.jks`).
-   * Configure `android/key.properties` and build release bundle: `flutter build appbundle --release`.
+   * Configure `android/key.properties` and compile bundle: `flutter build appbundle --release`.
+   * Register on Google Play Console and submit app for review.
+4. **Doctor Bank Payouts / IMPS Gateway (Priority 3 — Post-Launch Settlements)**:
+   * Connect `request-doctor-payout` Edge Function with RazorpayX Payouts or ICICI CIB Corporate Banking APIs for automated doctor account transfers.
 5. **ABDM / ABHA Live Integration (Phase 6 / Post-Launch Expansion)**:
    * Connect to NHA Sandbox for official 14-digit ABHA creation via Aadhaar OTP once government paperwork is cleared.
 
 👉 **[View Detailed Backend Incomplete Task Register](./05-technical/backend-incomplete-tasks.md)** for in-depth technical specifications on AWS SES, Razorpay live keys, Agora RTC production tokens, ABDM/ABHA integration, and cloud edge function deployments.  
 👉 **[View Essential Production Services Register](./05-technical/essential-production-services.md)** for the streamlined 5 non-negotiable services list and pricing.
+
