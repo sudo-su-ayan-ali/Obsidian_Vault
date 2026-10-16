@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "own vuln vms/win-standalone/lab 1/Untitled.md",
-                "mode": "preview",
+                "file": "own vuln vms/win-standalone/lab 1/Phases.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Phases"
             }
           }
         ]
@@ -204,6 +204,8 @@
   },
   "active": "ff5c1e9bd02c1cb8",
   "lastOpenFiles": [
+    "own vuln vms/win-standalone/lab 1/Untitled.md",
+    "own vuln vms/win-standalone/lab 1/Phases.md",
     "semesters/3rd sem/OS theory.md",
     "semesters/3rd sem/intro to cyber security.md",
     "2026-10-06.md",
@@ -235,8 +237,6 @@
     "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
     "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
     "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
-    "OSCP Prepration/notes/programming/Bash/AWK.md",
-    "bug bounty notes/BAC/Broken Access Control reports case study/vertical privilage escalation and indirect object refreance case on hub.vroid.com.md",
     "Untitled.canvas",
     "Recording 20261006081822.m4a",
     "Recording 20261006081818.m4a",
