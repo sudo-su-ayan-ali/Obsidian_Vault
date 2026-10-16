@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "own vuln vms/win-standalone/lab 1/Phases.md",
+                "file": "own vuln vms/win-standalone/lab 1/PRD — Vulnerable Windows Standalone Training Box.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Phases"
+              "title": "PRD — Vulnerable Windows Standalone Training Box"
             }
           }
         ]
@@ -204,8 +204,8 @@
   },
   "active": "ff5c1e9bd02c1cb8",
   "lastOpenFiles": [
-    "own vuln vms/win-standalone/lab 1/Untitled.md",
     "own vuln vms/win-standalone/lab 1/Phases.md",
+    "own vuln vms/win-standalone/lab 1/PRD — Vulnerable Windows Standalone Training Box.md",
     "semesters/3rd sem/OS theory.md",
     "semesters/3rd sem/intro to cyber security.md",
     "2026-10-06.md",
