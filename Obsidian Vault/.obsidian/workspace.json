@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "PRD — Vulnerable Windows Standalone Training Box"
             }
+          },
+          {
+            "id": "8690da5aed6333a9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 2.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 2"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 543.08984375
+    "width": 543.08984375,
+    "collapsed": true
   },
   "right": {
     "id": "566dade09dd03d33",
@@ -202,10 +218,11 @@
       "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "ff5c1e9bd02c1cb8",
+  "active": "8690da5aed6333a9",
   "lastOpenFiles": [
-    "own vuln vms/win-standalone/lab 1/Phases.md",
     "own vuln vms/win-standalone/lab 1/PRD — Vulnerable Windows Standalone Training Box.md",
+    "Untitled 2.md",
+    "own vuln vms/win-standalone/lab 1/Phases.md",
     "semesters/3rd sem/OS theory.md",
     "semesters/3rd sem/intro to cyber security.md",
     "2026-10-06.md",
@@ -236,7 +253,6 @@
     "OSCP Prepration/notes/programming/Bash/Arrays & associative arrays.md",
     "OSCP Prepration/notes/Active Directory/Setup/Windows 10-01.md",
     "OSCP Prepration/notes/Active Directory/exploitations/AD-exploitation methodology.md",
-    "OSCP Prepration/notes/programming/cpp/C++ Object-Oriented Programming (OOP) Roadmap.md",
     "Untitled.canvas",
     "Recording 20261006081822.m4a",
     "Recording 20261006081818.m4a",
